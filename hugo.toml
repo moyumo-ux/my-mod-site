@@ -1,0 +1,5 @@
+baseURL = '/'
+languageCode = 'zh-cn'
+title = '饥荒Mod网站'
+theme = 'ananke'
+publishDir = 'docs'
