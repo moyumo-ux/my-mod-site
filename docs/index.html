@@ -37,7 +37,6 @@
         .bottom-img2{bottom:11px;height:8px}
         .bottom-img{bottom:0;height:11px}
 
-         
         .spectrum-bar {
             position: fixed;
             top: 80px;
@@ -93,7 +92,6 @@
             #mainContent{padding:80px 16px 40px}
             #mainContent h1{font-size:2rem}
             .doc-line{font-size:0.5rem;flex-wrap:wrap;gap:0.4rem}
-             
             .spectrum-bar{top:70px;left:3px;right:5px}
         }
     </style>
@@ -153,47 +151,61 @@
             const statusText = document.getElementById('statusText');
             const quoteEl = document.getElementById('loadingQuote');
             const mainContent = document.getElementById('mainContent');
+
             const quotes = ['INITIALIZING', 'LOADING ASSETS', 'RENDERING LOGO', 'ALMOST READY', 'WELCOME'];
-            let progress = 0;
-            const totalSteps = 60;
-            const increment = 100 / totalSteps;
-            const totalDuration = 200 + Math.random() * 200;
-            const interval = totalDuration / totalSteps;
+            const totalDuration = 200 + Math.random() * 200; 
+            const startTime = performance.now();
+
             let quoteIndex = 0;
-            let timer = null;
-            function updateProgress() {
-                progress += increment;
-                if (progress > 100) progress = 100;
+            let animId = null;
+
+            function updateProgress(timestamp) {
+                const elapsed = timestamp - startTime;
+                let progress = Math.min(elapsed / totalDuration, 1);
+                const progressPercent = Math.floor(progress * 100);
+
+                
                 const isMobile = window.innerWidth <= 768;
                 if (isMobile) {
-                    fill.style.width = progress + '%';
+                    fill.style.width = (progress * 100) + '%';
                 } else {
-                    fill.style.height = progress + '%';
+                    fill.style.height = (progress * 100) + '%';
                 }
-                percent.textContent = Math.floor(progress) + '%';
+                percent.textContent = progressPercent + '%';
                 if (!isMobile) {
-                    document.getElementById('progressInfo').style.top = progress + '%';
+                    document.getElementById('progressInfo').style.top = (progress * 100) + '%';
                 }
-                if (progress > 20 && quoteIndex < 1) { quoteIndex = 1; statusText.textContent = quotes[1]; }
-                if (progress > 40 && quoteIndex < 2) { quoteIndex = 2; statusText.textContent = quotes[2]; }
-                if (progress > 70 && quoteIndex < 3) { quoteIndex = 3; statusText.textContent = quotes[3]; }
-                if (progress >= 100 && quoteIndex < 4) { quoteIndex = 4; statusText.textContent = quotes[4]; }
-                if (progress < 100) {
-                    timer = setTimeout(updateProgress, interval);
+
+                
+                if (progress > 0.2 && quoteIndex < 1) { quoteIndex = 1; statusText.textContent = quotes[1]; }
+                if (progress > 0.4 && quoteIndex < 2) { quoteIndex = 2; statusText.textContent = quotes[2]; }
+                if (progress > 0.7 && quoteIndex < 3) { quoteIndex = 3; statusText.textContent = quotes[3]; }
+                if (progress >= 1 && quoteIndex < 4) { quoteIndex = 4; statusText.textContent = quotes[4]; }
+
+                if (progress < 1) {
+                    animId = requestAnimationFrame(updateProgress);
                 } else {
+                    
                     cover.classList.add('sweeping');
                     setTimeout(() => {
                         cover.classList.add('fadeout');
                         mainContent.classList.add('visible');
                         setTimeout(() => {
                             cover.style.display = 'none';
+                            if (animId) cancelAnimationFrame(animId);
                         }, 400);
                     }, 500);
                 }
             }
+
+            
             const quoteList = ['"THE FUTURE IS BUILT."', '"BEYOND THE FRONTIER."', '"LIGHT IN THE DARK."', '"FORGE AHEAD."'];
             if (quoteEl) { quoteEl.textContent = quoteList[Math.floor(Math.random() * quoteList.length)]; }
-            updateProgress();
+
+            
+            animId = requestAnimationFrame(updateProgress);
+
+            
             let resizeTimer;
             window.addEventListener('resize', function() {
                 clearTimeout(resizeTimer);
