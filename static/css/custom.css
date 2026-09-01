@@ -1,0 +1,21 @@
+/* 1. 给整个页面设置背景图 */
+body {
+    background-image: url('/images/bg.png');
+    background-size: cover;          /* 图片铺满全屏 */
+    background-attachment: fixed;    /* 背景图固定，不随滚动条滚动 */
+    background-position: center;     /* 居中显示 */
+}
+
+/* 2. 让文章内容区域变半透明，避免文字被背景干扰看不清 */
+.center.mw8 {
+    background-color: rgba(255, 255, 255, 0.85); /* 白色半透明底色 */
+    padding: 20px 30px;              /* 内边距，让文字不贴边 */
+    border-radius: 12px;             /* 圆角，更现代 */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15); /* 轻微阴影，更有层次感 */
+}
+
+/* 3. 顶部导航栏也加一点半透明效果，看起来更融合 */
+.site-header {
+    background-color: rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: blur(6px);      /* 毛玻璃效果（部分浏览器支持） */
+}

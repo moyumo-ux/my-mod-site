@@ -1,5 +1,8 @@
-baseURL = '/'
-languageCode = 'zh-cn'
+baseURL = 'https://moyumo-ux.github.io/my-mod-site/'
+locale = 'zh-cn'
 title = '饥荒Mod网站'
 theme = 'ananke'
 publishDir = 'docs'
+
+[params]
+  ananke_css = ["/css/custom.css"]
