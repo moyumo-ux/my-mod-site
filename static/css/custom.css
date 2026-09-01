@@ -1,6 +1,6 @@
 /* 1. 给整个页面设置背景图 */
 body {
-    background-image: url('/images/bg.png');
+    background-image: url('/my-mod-site/images/bg.png');
     background-size: cover;          /* 图片铺满全屏 */
     background-attachment: fixed;    /* 背景图固定，不随滚动条滚动 */
     background-position: center;     /* 居中显示 */
