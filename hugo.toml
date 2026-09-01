@@ -1,8 +1,4 @@
 baseURL = 'https://moyumo-ux.github.io/my-mod-site/'
 locale = 'zh-cn'
-title = '饥荒Mod网站'
-theme = 'ananke'
+title = '驯猫糕手mod页'
 publishDir = 'docs'
-
-[params]
-  ananke_css = ["/css/custom.css"]
