@@ -6,12 +6,14 @@ body {
     background-position: center;     /* 居中显示 */
 }
 
-/* 2. 让文章内容区域变半透明，避免文字被背景干扰看不清 */
+/* 2. 文章内容区域——透明背景 + 窄宽度 */
 .center.mw8 {
-    background-color: rgba(255, 255, 255, 0.85); /* 白色半透明底色 */
-    padding: 20px 30px;              /* 内边距，让文字不贴边 */
-    border-radius: 12px;             /* 圆角，更现代 */
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15); /* 轻微阴影，更有层次感 */
+    background-color: transparent;       /* 完全透明，不再有白色底色 */
+    max-width: 700px;                   /* 限制最大宽度，缩小占比 */
+    margin: 0 auto;                     /* 居中显示 */
+    padding: 20px 30px;                /* 内边距保持舒适 */
+    border-radius: 12px;               /* 圆角保留（可选） */
+    box-shadow: none;                  /* 去掉阴影，更干净 */
 }
 
 /* 3. 顶部导航栏也加一点半透明效果，看起来更融合 */
