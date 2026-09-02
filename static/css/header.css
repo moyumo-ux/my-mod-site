@@ -64,3 +64,22 @@
     width: 16px;
     height: 16px;
 }
+
+.flag-right {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+}
+.flag-right img {
+    height: 40px;
+    width: auto;
+    display: block;
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.flag-right:hover {
+    opacity: 1;
+}
