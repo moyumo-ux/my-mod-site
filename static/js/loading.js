@@ -6,77 +6,54 @@
     const quoteEl = document.getElementById('loadingQuote');
     const mainContent = document.getElementById('mainContent');
 
-    const quotes = [
-        'INITIALIZING',
-        'LOADING ASSETS',
-        'RENDERING LOGO',
-        'ALMOST READY',
-        'WELCOME'
-    ];
+    const quotes = ['INITIALIZING', 'LOADING ASSETS', 'RENDERING LOGO', 'ALMOST READY', 'WELCOME'];
+    const totalDuration = 200 + Math.random() * 200;
+    const startTime = performance.now();
 
-    let progress = 0;
     let quoteIndex = 0;
+    let animId = null;
 
-    // 动态更新进度
-    function updateProgress() {
-        progress += Math.random() * 2 + 0.5;
-        if (progress > 100) progress = 100;
+    function updateProgress(timestamp) {
+        const elapsed = timestamp - startTime;
+        let progress = Math.min(elapsed / totalDuration, 1);
+        const progressPercent = Math.floor(progress * 100);
 
-        // 更新进度条
         const isMobile = window.innerWidth <= 768;
         if (isMobile) {
-            fill.style.width = progress + '%';
+            fill.style.width = (progress * 100) + '%';
         } else {
-            fill.style.height = progress + '%';
+            fill.style.height = (progress * 100) + '%';
         }
-
-        // 更新百分比显示
-        percent.textContent = Math.floor(progress) + '%';
-
-        // 更新进度信息的位置（桌面端跟随进度条）
+        percent.textContent = progressPercent + '%';
         if (!isMobile) {
-            const info = document.getElementById('progressInfo');
-            info.style.top = progress + '%';
+            document.getElementById('progressInfo').style.top = (progress * 100) + '%';
         }
 
-        // 更新状态文字
-        if (progress > 20 && quoteIndex < 1) { quoteIndex = 1; statusText.textContent = quotes[1]; }
-        if (progress > 40 && quoteIndex < 2) { quoteIndex = 2; statusText.textContent = quotes[2]; }
-        if (progress > 70 && quoteIndex < 3) { quoteIndex = 3; statusText.textContent = quotes[3]; }
-        if (progress >= 100 && quoteIndex < 4) { quoteIndex = 4; statusText.textContent = quotes[4]; }
+        if (progress > 0.2 && quoteIndex < 1) { quoteIndex = 1; statusText.textContent = quotes[1]; }
+        if (progress > 0.4 && quoteIndex < 2) { quoteIndex = 2; statusText.textContent = quotes[2]; }
+        if (progress > 0.7 && quoteIndex < 3) { quoteIndex = 3; statusText.textContent = quotes[3]; }
+        if (progress >= 1 && quoteIndex < 4) { quoteIndex = 4; statusText.textContent = quotes[4]; }
 
-        if (progress < 100) {
-            // 随机延迟，模拟加载
-            const delay = Math.random() * 80 + 20;
-            setTimeout(updateProgress, delay);
+        if (progress < 1) {
+            animId = requestAnimationFrame(updateProgress);
         } else {
-            // 加载完成 → 触发扫光动画 → 淡出
             cover.classList.add('sweeping');
             setTimeout(() => {
                 cover.classList.add('fadeout');
+                mainContent.classList.add('visible');
                 setTimeout(() => {
                     cover.style.display = 'none';
-                    if (mainContent) mainContent.style.display = 'block';
+                    if (animId) cancelAnimationFrame(animId);
                 }, 400);
             }, 500);
         }
     }
 
-    // 设置引语（随机一句）
-    const quoteList = [
-        '"THE FUTURE IS BUILT."',
-        '"BEYOND THE FRONTIER."',
-        '"LIGHT IN THE DARK."',
-        '"FORGE AHEAD."'
-    ];
-    if (quoteEl) {
-        quoteEl.textContent = quoteList[Math.floor(Math.random() * quoteList.length)];
-    }
+    const quoteList = ['"THE FUTURE IS BUILT."', '"BEYOND THE FRONTIER."', '"LIGHT IN THE DARK."', '"FORGE AHEAD."'];
+    if (quoteEl) { quoteEl.textContent = quoteList[Math.floor(Math.random() * quoteList.length)]; }
 
-    // 启动加载
-    updateProgress();
+    animId = requestAnimationFrame(updateProgress);
 
-    // 窗口大小变化时重新适配进度条显示
     let resizeTimer;
     window.addEventListener('resize', function() {
         clearTimeout(resizeTimer);

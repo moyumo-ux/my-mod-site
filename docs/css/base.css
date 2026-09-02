@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Avenir Next", Avenir, sans-serif;
+    background-image: url('/my-mod-site/images/bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.bottom-img,
+.bottom-img2 {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    object-fit: fill;
+}
+.bottom-img2 {
+    bottom: 11px;
+    height: 8px;
+}
+.bottom-img {
+    bottom: 0;
+    height: 11px;
+}

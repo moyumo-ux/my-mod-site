@@ -1,0 +1,79 @@
+/* ============================================
+   标题栏
+   ============================================ */
+
+.titlebar {
+    position: relative;
+    overflow: hidden;
+    background: #fafafa;
+    padding: 2.5rem 0;
+    margin: 0;
+    border-radius: 0;
+    border-bottom: 2px solid #e4e4e7;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+}
+
+@media (min-width: 768px) {
+    .titlebar {
+        padding: 3rem 0;
+    }
+}
+
+.titlebar-grid {
+    position: absolute;
+    inset: 0;
+    opacity: 0.1;
+    pointer-events: none;
+    background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 2px, #a1a1aa 2px, #a1a1aa 4px),
+        repeating-linear-gradient(90deg, transparent, transparent 2px, #a1a1aa 2px, #a1a1aa 4px);
+    background-size: 100px 100px;
+}
+
+.titlebar-marquee {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    opacity: 0.12;
+    pointer-events: none;
+    overflow: hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 900;
+    font-size: 6rem;
+    line-height: 1;
+    color: #18181b;
+    user-select: none;
+    white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+    .titlebar-marquee {
+        font-size: 3rem;
+    }
+}
+
+.titlebar-marquee span {
+    display: inline-block;
+    flex-shrink: 0;
+    animation: bgMarquee 30s linear infinite;
+    will-change: transform;
+}
+
+@keyframes bgMarquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.titlebar-spectrum {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}

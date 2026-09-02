@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-	<meta name="generator" content="Hugo 0.165.0">
+	<meta name="generator" content="Hugo 0.165.0"><script src="/my-mod-site/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=my-mod-site/livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>驯猫糕手mod页</title>
@@ -18,206 +18,94 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{min-height:100vh;font-family:"Avenir Next",Avenir,sans-serif;background-image:url('/my-mod-site/images/bg.png');background-size:cover;background-position:center;background-attachment:fixed}
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap" rel="stylesheet">
 
-        .logo{position:fixed;top:20px;left:20px;z-index:1000;display:flex;align-items:center;gap:15px}
-        .logo img{height:50px;width:auto;display:block}
-        .logo a{display:inline-block;line-height:0}
-
-        .logo2-wrapper{position:relative;display:inline-block;cursor:pointer;transition:all 0.3s ease;border:2px solid transparent}
-        .logo2-wrapper:hover{border-color:#FBFB45;transform:scale(1.05);box-shadow:0 0 16px rgba(251,251,69,0.35)}
-        .logo2-wrapper::before,.logo2-wrapper::after{content:'';position:absolute;width:0;height:0;transition:all 0.3s ease;opacity:0;pointer-events:none}
-        .logo2-wrapper::before{top:-4px;left:-4px;border-top:3px solid #000000;border-left:3px solid #000000}
-        .logo2-wrapper::after{bottom:-4px;right:-4px;border-bottom:3px solid #000000;border-right:3px solid #000000}
-        .logo2-wrapper:hover::before,.logo2-wrapper:hover::after{opacity:1;width:18px;height:18px}
-
-        .bottom-img,.bottom-img2{position:fixed;left:0;width:100%;z-index:999;object-fit:fill}
-        .bottom-img2{bottom:11px;height:8px}
-        .bottom-img{bottom:0;height:11px}
-
-        .spectrum-bar {
-            position: fixed;
-            top: 80px;
-            left: 10px;
-            right: 15px;
-            width: auto;
-            height: 2px;
-            background: linear-gradient(90deg, #FBFB45 0%, #a1a1aa 50%, #FBFB45 100%);
-            border-radius: 2px;
-            z-index: 999;
-        }
-
-        #mainContent{position:relative;z-index:1;min-height:100vh;padding:120px 20px 60px;color:#222;text-align:center;opacity:0;transition:opacity 0.5s ease}
-        #mainContent.visible{opacity:1}
-        #mainContent h1{font-size:3rem;font-weight:700;margin-bottom:0.5rem;color:#222}
-        #mainContent p{font-size:1.2rem;opacity:0.9;color:#222}
-
-         
-        .doc-line{display:flex;align-items:center;gap:0.75rem;font-size:0.6rem;font-family:'JetBrains Mono','Consolas',monospace;color:rgba(0,0,0,0.55);border-bottom:1px solid rgba(0,0,0,0.1);padding:0 0 0.5rem 0;margin:-5px 0 24px 0;letter-spacing:0.05em}
-        .doc-line .doc-id{font-weight:700;color:#000}
-        .doc-line .online-status{display:flex;align-items:center;gap:0.5rem}
-        .doc-line .online-dot{width:0.4rem;height:0.4rem;border-radius:9999px;background:#22c55e;box-shadow:0 0 0 0 rgba(34,197,94,0.6);animation:online-pulse 2s ease-in-out infinite}
-        @keyframes online-pulse{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,0.6)}50%{box-shadow:0 0 8px 2px rgba(34,197,94,0.4)}}
-
-        .loading-cover{position:fixed;top:0;left:0;width:100vw;height:100vh;background:#0f1419;z-index:99999;overflow:hidden}
-        .loading-cover::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:40px 40px;z-index:1;pointer-events:none}
-        .loading-cover .progress-container{position:absolute;left:0;top:0;width:12px;height:100%;background:rgba(255,255,255,0.1)}
-        .loading-cover .progress-track{position:absolute;left:0;top:0;width:100%;height:100%}
-        .loading-cover .progress-fill{position:absolute;top:0;left:0;width:100%;height:0%;background:#FBFB45;transition:height 0.05s linear}
-        .loading-cover .progress-info{position:absolute;left:24px;top:0%;transform:translateY(-100%);display:flex;flex-direction:column;align-items:flex-start;gap:6px;transition:top 0.05s linear;padding-bottom:12px}
-        .loading-cover .progress-percent{font-family:'JetBrains Mono',monospace;font-size:clamp(32px,5vw,48px);font-weight:700;color:#FBFB45;letter-spacing:2px;line-height:1}
-        .loading-cover .status-line{display:flex;align-items:center;gap:8px}
-        .loading-cover .status-dot{width:6px;height:6px;background:#FBFB45;border-radius:50%;animation:blink 0.8s ease-in-out infinite}
-        .loading-cover .status-text{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;color:rgba(251,251,69,0.8);letter-spacing:2px;text-transform:uppercase}
-        .loading-cover .sweep-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:#FBFB45;transform:scaleX(0);transform-origin:left;pointer-events:none;z-index:50}
-        .loading-cover.sweeping .sweep-overlay{animation:sweepCover 0.4s ease-in-out forwards}
-        .loading-cover.fadeout{opacity:0;transition:opacity 0.3s ease}
-        .loading-cover .center-content{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column;align-items:center;gap:20px;z-index:10}
-        .loading-cover.sweeping .center-content{transform:translate(100vw,-50%)}
-        .loading-cover .loading-logo{width:clamp(120px,18vw,220px);height:auto;user-select:none;pointer-events:none}
-        .loading-cover .loading-side-text{font-family:'JetBrains Mono',monospace;font-size:clamp(0.75rem,1.5vw,1rem);font-weight:600;color:#fff;letter-spacing:0.25em;text-transform:uppercase;user-select:none}
-        @keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
-        @keyframes sweepCover{0%{transform:scaleX(0);transform-origin:left}100%{transform:scaleX(1);transform-origin:left}}
-        @media (max-width:768px){
-            .loading-cover .progress-container{width:calc(100% - 6rem);height:8px;top:auto;bottom:30px;left:0}
-            .loading-cover .progress-fill{width:0%;height:100%;transition:width 0.05s linear}
-            .loading-cover .progress-info{top:auto;bottom:24px;left:0;flex-direction:row;gap:8px;padding-bottom:0}
-            .loading-cover .progress-percent{font-size:14px}
-            .loading-cover .status-line{display:none}
-            .loading-cover .center-content{top:50%;left:50%;transform:translate(-50%,-50%)}
-            .loading-cover.sweeping .center-content{transform:translate(100vw,-50%)}
-            .loading-cover .loading-logo{width:180px}
-            .loading-cover .loading-side-text{font-size:1.1rem;max-width:86vw;text-align:center;line-height:1.5}
-            #mainContent{padding:80px 16px 40px}
-            #mainContent h1{font-size:2rem}
-            .doc-line{font-size:0.5rem;flex-wrap:wrap;gap:0.4rem;margin:-5px 0 16px 0}  
-            .spectrum-bar{top:70px;left:3px;right:5px}
-        }
-    </style>
+    <link rel="stylesheet" href="/my-mod-site/css/base.css">
+    <link rel="stylesheet" href="/my-mod-site/css/loading.css">
+    <link rel="stylesheet" href="/my-mod-site/css/header.css">
+    <link rel="stylesheet" href="/my-mod-site/css/spectrum.css">
+    <link rel="stylesheet" href="/my-mod-site/css/doc-line.css">
+    <link rel="stylesheet" href="/my-mod-site/css/main.css">
+    <link rel="stylesheet" href="/my-mod-site/css/mod-cards.css">
+    <link rel="stylesheet" href="/my-mod-site/css/titlebar.css">
 </head>
 <body>
     <div class="loading-cover" id="loading-cover">
-        <div class="progress-container">
-            <div class="progress-track">
-                <div class="progress-fill" id="progressFill"></div>
-            </div>
-        </div>
-        <div class="progress-info" id="progressInfo">
-            <div class="progress-percent" id="progressPercent">0%</div>
-            <div class="status-line">
-                <span class="status-dot"></span>
-                <span class="status-text" id="statusText">INITIALIZING</span>
-            </div>
-        </div>
-        <div class="sweep-overlay"></div>
-        <div class="center-content">
-            <img src="/my-mod-site/images/loading_logo.png" alt="logo" class="loading-logo">
-            <div class="loading-side-text" id="loadingQuote"></div>
+    <div class="progress-container">
+        <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
         </div>
     </div>
-
+    <div class="progress-info" id="progressInfo">
+        <div class="progress-percent" id="progressPercent">0%</div>
+        <div class="status-line">
+            <span class="status-dot"></span>
+            <span class="status-text" id="statusText">INITIALIZING</span>
+        </div>
+    </div>
+    <div class="sweep-overlay"></div>
+    <div class="center-content">
+        <img src="/my-mod-site/images/loading_logo.png" alt="logo" class="loading-logo">
+        <div class="loading-side-text" id="loadingQuote"></div>
+    </div>
+</div>
     <div class="logo">
-        <img src="/my-mod-site/images/logo.png" alt="Logo1">
-        <a href="https://dontstarve.huijiwiki.com/wiki/%E9%A5%A5%E8%8D%92%EF%BC%9A%E8%81%94%E6%9C%BA%E7%89%88" target="_blank" rel="noopener noreferrer">
-            <span class="logo2-wrapper">
-                <img src="/my-mod-site/images/logo2.png" alt="Logo2">
-            </span>
-        </a>
-    </div>
-
+    <img src="/my-mod-site/images/logo.png" alt="Logo1">
+    <a href="https://dontstarve.huijiwiki.com/wiki/%E9%A5%A5%E8%8D%92%EF%BC%9A%E8%81%94%E6%9C%BA%E7%89%88" target="_blank" rel="noopener noreferrer">
+        <span class="logo2-wrapper">
+            <img src="/my-mod-site/images/logo2.png" alt="Logo2">
+        </span>
+    </a>
+</div>
     <div class="spectrum-bar"></div>
-
     <img src="/my-mod-site/images/bottom2.png" class="bottom-img2" alt="">
-    <img src="/my-mod-site/images/bottom.png" class="bottom-img" alt="">
-
+<img src="/my-mod-site/images/bottom.png" class="bottom-img" alt="">
     <div id="mainContent">
-        <div class="doc-line">
-            <span class="doc-id">XUNCAT &amp; COLLABORATORS // DSTMOD INTRODUCTION</span>
-            <span style="flex:1"></span>
-            <span class="online-status">
-                <span class="online-dot"></span>
-                ONLINE
-            </span>
-        </div>
-        
+    <div class="doc-line">
+        <span class="doc-id">XUNCAT &amp; COLLABORATORS // DSTMOD INTRODUCTION</span>
+        <span style="flex:1"></span>
+        <span class="online-status">
+            <span class="online-dot"></span>
+            ONLINE
+        </span>
     </div>
 
-    <script>
-        (function() {
-            const cover = document.getElementById('loading-cover');
-            const fill = document.getElementById('progressFill');
-            const percent = document.getElementById('progressPercent');
-            const statusText = document.getElementById('statusText');
-            const quoteEl = document.getElementById('loadingQuote');
-            const mainContent = document.getElementById('mainContent');
+    <div class="titlebar">
+    <div class="titlebar-grid"></div>
+    <div class="titlebar-marquee">
+        <span>驯猫糕手MOD页 驯猫糕手MOD页 驯猫糕手MOD页 驯猫糕手MOD页 驯猫糕手MOD页 驯猫糕手MOD页 驯猫糕手MOD页 驯猫糕手MOD页 驯猫糕手MOD页 驯猫糕手MOD页 驯猫糕手MOD页 驯猫糕手MOD页 驯猫糕手MOD页</span>
+    </div>
+</div>
+    <div class="mod-grid">
+    <a href="#" class="modbox" target="_blank">
+        <div class="mod-card-content">
+            <img src="/my-mod-site/images/mod_icon_1.png" alt="图标" class="mod-icon">
+            <div class="mod-text-area">
+                <div class="mod-header">
+                    <span class="mod-title">毕竟是法师呢</span>
+                    <span class="mod-tags">角色，辅助，能力拓展</span>
+                </div>
+                <p class="mod-desc">薇洛的角色mod，包括纯净辅助、高端功能、重构技能树、影月阵营新技能。让薇洛适应从原版到永不妥协、新界、为爽而虐各类难度梯度模组。</p>
+            </div>
+        </div>
+    </a>
 
-            const quotes = ['INITIALIZING', 'LOADING ASSETS', 'RENDERING LOGO', 'ALMOST READY', 'WELCOME'];
-            const totalDuration = 200 + Math.random() * 200;
-            const startTime = performance.now();
-
-            let quoteIndex = 0;
-            let animId = null;
-
-            function updateProgress(timestamp) {
-                const elapsed = timestamp - startTime;
-                let progress = Math.min(elapsed / totalDuration, 1);
-                const progressPercent = Math.floor(progress * 100);
-
-                const isMobile = window.innerWidth <= 768;
-                if (isMobile) {
-                    fill.style.width = (progress * 100) + '%';
-                } else {
-                    fill.style.height = (progress * 100) + '%';
-                }
-                percent.textContent = progressPercent + '%';
-                if (!isMobile) {
-                    document.getElementById('progressInfo').style.top = (progress * 100) + '%';
-                }
-
-                if (progress > 0.2 && quoteIndex < 1) { quoteIndex = 1; statusText.textContent = quotes[1]; }
-                if (progress > 0.4 && quoteIndex < 2) { quoteIndex = 2; statusText.textContent = quotes[2]; }
-                if (progress > 0.7 && quoteIndex < 3) { quoteIndex = 3; statusText.textContent = quotes[3]; }
-                if (progress >= 1 && quoteIndex < 4) { quoteIndex = 4; statusText.textContent = quotes[4]; }
-
-                if (progress < 1) {
-                    animId = requestAnimationFrame(updateProgress);
-                } else {
-                    cover.classList.add('sweeping');
-                    setTimeout(() => {
-                        cover.classList.add('fadeout');
-                        mainContent.classList.add('visible');
-                        setTimeout(() => {
-                            cover.style.display = 'none';
-                            if (animId) cancelAnimationFrame(animId);
-                        }, 400);
-                    }, 500);
-                }
-            }
-
-            const quoteList = ['"THE FUTURE IS BUILT."', '"BEYOND THE FRONTIER."', '"LIGHT IN THE DARK."', '"FORGE AHEAD."'];
-            if (quoteEl) { quoteEl.textContent = quoteList[Math.floor(Math.random() * quoteList.length)]; }
-
-            animId = requestAnimationFrame(updateProgress);
-
-            let resizeTimer;
-            window.addEventListener('resize', function() {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(function() {
-                    const isMobile = window.innerWidth <= 768;
-                    const currentProgress = parseFloat(percent.textContent) || 0;
-                    if (isMobile) {
-                        fill.style.width = currentProgress + '%';
-                        fill.style.height = '100%';
-                    } else {
-                        fill.style.width = '100%';
-                        fill.style.height = currentProgress + '%';
-                    }
-                }, 100);
-            });
-        })();
-    </script>
+    <a href="#" class="modbox" target="_blank">
+        <div class="mod-card-content">
+            <img src="/my-mod-site/images/mod_icon_2.png" alt="图标" class="mod-icon">
+            <div class="mod-text-area">
+                <div class="mod-header">
+                    <span class="mod-title">Meme表情包</span>
+                    <span class="mod-tags">服务器模组，表情包交流</span>
+                </div>
+                <p class="mod-desc">在聊天栏可以发送表情包与好友交流，很酷对吧！还能帮助陌生朋友之间破冰。</p>
+            </div>
+        </div>
+    </a>
+</div>
+</div>
+    <script src="/my-mod-site/js/loading.js"></script>
+    <script src="/my-mod-site/js/mod-cards.js"></script>
 </body>
 </html>
 
