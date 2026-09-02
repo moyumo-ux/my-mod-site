@@ -2,14 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/my-mod-site/mod/</loc>
+    <lastmod>2026-09-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/my-mod-site/mod/willow/</loc>
+    <lastmod>2026-09-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/my-mod-site/</loc>
+    <lastmod>2026-09-02T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/my-mod-site/posts/hello/</loc>
     <lastmod>2026-09-02T01:12:04+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/my-mod-site/posts/</loc>
     <lastmod>2026-09-02T01:12:04+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/my-mod-site/</loc>
-    <lastmod>2026-09-02T01:12:04+08:00</lastmod>
+    <loc>http://localhost:1313/my-mod-site/mod/arknightsbg/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my-mod-site/mod/immediatedoom/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my-mod-site/mod/jx/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my-mod-site/mod/lifelink/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my-mod-site/mod/meme/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my-mod-site/mod/sharestate/</loc>
+  </url><url>
+    <loc>http://localhost:1313/my-mod-site/mod/warg/</loc>
   </url><url>
     <loc>http://localhost:1313/my-mod-site/categories/</loc>
   </url><url>

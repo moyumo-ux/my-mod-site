@@ -38,12 +38,15 @@
             animId = requestAnimationFrame(updateProgress);
         } else {
             cover.classList.add('sweeping');
-            setTimeout(() => {
+            setTimeout(function() {
                 cover.classList.add('fadeout');
                 mainContent.classList.add('visible');
-                setTimeout(() => {
+                setTimeout(function() {
                     cover.style.display = 'none';
-                    if (animId) cancelAnimationFrame(animId);
+                    if (animId) {
+                        cancelAnimationFrame(animId);
+                        animId = null;
+                    }
                 }, 400);
             }, 500);
         }
@@ -54,7 +57,7 @@
 
     animId = requestAnimationFrame(updateProgress);
 
-    let resizeTimer;
+    var resizeTimer;
     window.addEventListener('resize', function() {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(function() {

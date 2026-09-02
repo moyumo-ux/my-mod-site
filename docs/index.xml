@@ -10,15 +10,71 @@
 		
 		
 		
-			<lastBuildDate>Wed, 02 Sep 2026 01:12:04 +0800</lastBuildDate>
+			<lastBuildDate>Wed, 02 Sep 2026 00:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="http://localhost:1313/my-mod-site/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>毕竟是法师呢（前方正在施工）</title>
+				<link>http://localhost:1313/my-mod-site/mod/willow/</link>
+				<pubDate>Wed, 02 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/my-mod-site/mod/willow/</guid>
+				<description>&lt;h2 id=&#34;模组介绍&#34;&gt;模组介绍&lt;/h2&gt;&#xA;&lt;p&gt;薇洛的角色mod，包括纯净辅助功能、专属角色物品、被重构的技能树、影月阵营新技能。&lt;/p&gt;&#xA;&lt;h2 id=&#34;新版技能树&#34;&gt;新版技能树&lt;/h2&gt;&#xA;&lt;p&gt;“描述”内容中，开头标注*的是未作修改的原版条目。&lt;/p&gt;&#xA;&lt;h3 id=&#34;打火机&#34;&gt;打火机&lt;/h3&gt;&#xA;&lt;table class=&#34;wikitable&#34;&gt;&#xA;  &lt;thead&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;th style=&#34;width: 18%;&#34;&gt;技能&lt;/th&gt;&#xA;      &lt;th style=&#34;width: 45%;&#34;&gt;描述&lt;/th&gt;&#xA;      &lt;th style=&#34;width: 37%;&#34;&gt;特殊说明&lt;/th&gt;&#xA;    &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;td&gt;&lt;strong&gt;可控燃烧 I&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;td&gt;*使用打火机攻击生物时，100%将其点燃。由薇洛造成的所有燃烧状态变为可控燃烧。薇洛可以远程对可控燃烧中的实体进行“煽动”，使其变成普通的燃烧。&lt;/td&gt;&#xA;      &lt;td&gt;无&lt;/td&gt;&#xA;    &lt;/tr&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;td&gt;&lt;strong&gt;可控燃烧 II&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;td&gt;*被薇洛点燃的生物，燃烧状态持续时长+200%&lt;/td&gt;&#xA;      &lt;td&gt;无&lt;/td&gt;&#xA;    &lt;/tr&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;td&gt;&lt;strong&gt;可控燃烧 III&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;td&gt;被薇洛点燃的生物，受到的燃烧伤害增加50%&lt;/td&gt;&#xA;      &lt;td&gt;增伤幅度默认50%，由模组配置在30%~110%之间调节&lt;/td&gt;&#xA;    &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;table class=&#34;wikitable&#34;&gt;&#xA;  &lt;thead&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;th style=&#34;width: 18%;&#34;&gt;技能&lt;/th&gt;&#xA;      &lt;th style=&#34;width: 45%;&#34;&gt;描述&lt;/th&gt;&#xA;      &lt;th style=&#34;width: 37%;&#34;&gt;特殊说明&lt;/th&gt;&#xA;    &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;td&gt;&lt;strong&gt;明亮打火机 I&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;td&gt;*打火机的照明范围增加150%&lt;/td&gt;&#xA;      &lt;td&gt;无&lt;/td&gt;&#xA;    &lt;/tr&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;td&gt;&lt;strong&gt;明亮打火机 II&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;td&gt;*打火机的照明范围增加300%&lt;/td&gt;&#xA;      &lt;td&gt;无&lt;/td&gt;&#xA;    &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;table class=&#34;wikitable&#34;&gt;&#xA;  &lt;thead&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;th style=&#34;width: 18%;&#34;&gt;技能&lt;/th&gt;&#xA;      &lt;th style=&#34;width: 45%;&#34;&gt;描述&lt;/th&gt;&#xA;      &lt;th style=&#34;width: 37%;&#34;&gt;特殊说明&lt;/th&gt;&#xA;    &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;td&gt;&lt;strong&gt;饥饿打火机&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;td&gt;*可右键使用打火机吸收火焰、闷烧、以太余烬，并使用以太余烬恢复打火机耐久度&lt;/td&gt;&#xA;      &lt;td&gt;无&lt;/td&gt;&#xA;    &lt;/tr&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;td&gt;&lt;strong&gt;余烬照料者&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;td&gt;1、附近燃烧的部分生物死亡时掉落以太余烬&lt;br&gt;&#xA;      2、获得主动技能“火焰投掷”：点燃指定位置可燃物&lt;br&gt;&#xA;      3、当启用配置“火团投掷”时，获得附带新技能“火团投掷”：在指定位置迸发出数团火焰形成火海&#xA;      &lt;/td&gt;&#xA;      &lt;td style=&#34;text-align:center; vertical-align:middle;&#34;&gt;施法距离增加，可以对更远的目标位置释放&lt;/td&gt;&#xA;    &lt;/tr&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;td&gt;&lt;strong&gt;燃烧术&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;td&gt;1、获得主动技能“燃烧术”：点燃自身附近敌人&lt;br&gt;&#xA;      2、当启用配置“燃烧术AOE”时，同时释放向外扩大的火环，对所有触碰单位造成30点伤害&#xA;      &lt;/td&gt;&#xA;      &lt;td&gt;1、燃烧术范围扩大了25%&lt;br&gt;&#xA;      2、若学习了“燃烧伯尼”技能，则会强化范围内的巨大伯尼&lt;br&gt;&#xA;      3、火环伤害类型为无来源的“火焰伤害”&#xA;      &lt;/td&gt;&#xA;    &lt;/tr&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;td&gt;&lt;strong&gt;火球术&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;td&gt;*在指定位置生成一颗火球，持续一天&lt;/td&gt;&#xA;      &lt;td style=&#34;text-align:center; vertical-align:middle;&#34;&gt;施法距离增加，可以在更远的地方召唤火球&lt;/td&gt;&#xA;    &lt;/tr&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;td&gt;&lt;strong&gt;狂热焚烧&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;td&gt;1、原版效果是60秒内对燃烧状态敌人造成伤害+25%&lt;br&gt;&#xA;      2、配置中“狂热焚烧”专栏对技能效果进行重构，在后文详细描述&#xA;      &lt;/td&gt;&#xA;      &lt;td style=&#34;text-align:center; vertical-align:middle;&#34;&gt;狂热焚烧技能是Buff核心&lt;/td&gt;&#xA;    &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h3 id=&#34;伯尼&#34;&gt;伯尼&lt;/h3&gt;&#xA;&lt;table class=&#34;wikitable&#34;&gt;&#xA;  &lt;thead&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;th style=&#34;width: 18%;&#34;&gt;技能&lt;/th&gt;&#xA;      &lt;th style=&#34;width: 45%;&#34;&gt;描述&lt;/th&gt;&#xA;      &lt;th style=&#34;width: 37%;&#34;&gt;特殊说明&lt;/th&gt;&#xA;    &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;td&gt;&lt;strong&gt;打补丁 I&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;td&gt;伯尼每秒恢复2点生命值&lt;/td&gt;&#xA;      &lt;td&gt;无&lt;/td&gt;&#xA;    &lt;/tr&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;td&gt;&lt;strong&gt;打补丁 II&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;td&gt;伯尼受到攻击时回复1%已损生命值&lt;/td&gt;&#xA;      &lt;td&gt;无&lt;/td&gt;&#xA;    &lt;/tr&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;td&gt;&lt;strong&gt;坚硬填料 I&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;td&gt;伯尼的生命值上限增加400&lt;/td&gt;&#xA;      &lt;td&gt;无&lt;/td&gt;&#xA;    &lt;/tr&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;td&gt;&lt;strong&gt;坚硬填料 II&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;td&gt;伯尼的生命值上限增加1000&lt;/td&gt;&#xA;      &lt;td&gt;无&lt;/td&gt;&#xA;    &lt;/tr&gt;&#xA;    &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;table class=&#34;wikitable&#34;&gt;&#xA;  &lt;thead&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;th style=&#34;width: 18%;&#34;&gt;技能&lt;/th&gt;&#xA;      &lt;th style=&#34;width: 45%;&#34;&gt;描述&lt;/th&gt;&#xA;      &lt;th style=&#34;width: 37%;&#34;&gt;特殊说明&lt;/th&gt;&#xA;    &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;td&gt;&lt;strong&gt;理智小熊&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;td&gt;伯尼会在50%的理智阈值变身为巨大伯尼&lt;/td&gt;&#xA;      &lt;td&gt;无&lt;/td&gt;&#xA;    &lt;/tr&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;td&gt;&lt;strong&gt;头脑发热&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;td&gt;1、巨大伯尼会嘲讽附近的敌对生物。&lt;br&gt;&#xA;      2、伯尼在这些生物附近会无视玩家理智变为巨大伯尼&#xA;      &lt;/td&gt;&#xA;      &lt;td&gt;无&lt;/td&gt;&#xA;    &lt;/tr&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;td&gt;&lt;strong&gt;伯尼！！&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;td&gt;薇洛拥有阵营亲和时，装备伯尼能够使影怪和虚影保持中立&lt;/td&gt;&#xA;      &lt;td style=&#34;text-align:center; vertical-align:middle;&#34;&gt;拥有任一阵营亲和均可触发双阵营中立&lt;/td&gt;&#xA;    &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;table class=&#34;wikitable&#34;&gt;&#xA;  &lt;thead&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;th style=&#34;width: 18%;&#34;&gt;技能&lt;/th&gt;&#xA;      &lt;th style=&#34;width: 45%;&#34;&gt;描述&lt;/th&gt;&#xA;      &lt;th style=&#34;width: 37%;&#34;&gt;特殊说明&lt;/th&gt;&#xA;    &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;td&gt;&lt;strong&gt;加速剂 I&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;td&gt;*伯尼的移速增加15%&lt;/td&gt;&#xA;      &lt;td&gt;无&lt;/td&gt;&#xA;    &lt;/tr&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;td&gt;&lt;strong&gt;加速剂 II&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;td&gt;*伯尼的移速增加30%&lt;/td&gt;&#xA;      &lt;td&gt;无&lt;/td&gt;&#xA;    &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;table class=&#34;wikitable&#34;&gt;&#xA;  &lt;thead&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;th style=&#34;width: 18%;&#34;&gt;技能&lt;/th&gt;&#xA;      &lt;th style=&#34;width: 45%;&#34;&gt;描述&lt;/th&gt;&#xA;      &lt;th style=&#34;width: 37%;&#34;&gt;特殊说明&lt;/th&gt;&#xA;    &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;td&gt;&lt;strong&gt;燃烧伯尼&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;td&gt;伯尼可以被点燃强化：&lt;br&gt;&#xA;      1、20秒内小范围照明，并对攻击伯尼的生物造成50点反弹伤害&lt;br&gt;&#xA;      2、启用配置“燃烧伯尼！”后，战斗中的伯尼会持续刷新上述效果&#xA;      &lt;/td&gt;&#xA;      &lt;td style=&#34;text-align:center; vertical-align:middle;&#34;&gt;解锁所需伯尼技能数由8减为5个&lt;/td&gt;&#xA;    &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h3 id=&#34;亲和&#34;&gt;亲和&lt;/h3&gt;&#xA;&lt;table class=&#34;wikitable&#34;&gt;&#xA;  &lt;thead&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;th style=&#34;width: 18%;&#34;&gt;技能&lt;/th&gt;&#xA;      &lt;th style=&#34;width: 45%;&#34;&gt;描述&lt;/th&gt;&#xA;      &lt;th style=&#34;width: 37%;&#34;&gt;特殊说明&lt;/th&gt;&#xA;    &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;td&gt;&lt;strong&gt;暗影伯尼&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;td&gt;*伯尼变为暗影阵营，获得位面实体抵抗和位面防御&lt;/td&gt;&#xA;      &lt;td&gt;无&lt;/td&gt;&#xA;    &lt;/tr&gt;&#xA;    &lt;tr&gt;&#xA;      &lt;td&gt;&lt;strong&gt;暗影循环&lt;/strong&gt;&lt;/td&gt;&#xA;      &lt;td&gt;1、获得主动技能“暗焰”：释放5团影火追击敌人，造成120点位面伤害和30点物理伤害&lt;br&gt;&#xA;      2、若启用配置“夜奔”，则获得附加主动技能“夜奔”：开启时受到暗影侵蚀、降低理智上限，自动释放影火攻击附近敌人，不占用暗焰冷却，持续时间无限，再次释放夜奔时关闭&lt;br&gt;&#xA;      3、若启用配置“暗焰循环”，则暗焰技能在狂热焚烧期间获得强化，效果将在后文狂热焚烧专栏进行描述&#xA;      &lt;/td&gt;&#xA;      &lt;td&gt;1、影火优化：优先追击BOSS级生物，同级单位优先追击最近目标，可存在时间延长&lt;br&gt;&#xA;      2、开启夜奔时，理智上限降低为50%，此时可以轻易激活伯尼，同时释放影火保护自己，相应地，在该理智状态下会源源不断地刷新出影怪，消耗物品栏中的以太余烬&#xA;      &lt;/td&gt;&#xA;    &lt;/tr&gt;&#xA;    &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h2 id=&#34;工坊地址&#34;&gt;工坊地址&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://steamcommunity.com/sharedfiles/filedetails/?id=xxx&#34;&gt;前往 Steam 创意工坊&lt;/a&gt;&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>Hello</title>
 				<link>http://localhost:1313/my-mod-site/posts/hello/</link>
 				<pubDate>Wed, 02 Sep 2026 01:12:04 +0800</pubDate>
 				<guid>http://localhost:1313/my-mod-site/posts/hello/</guid>
 				<description>&lt;p&gt;测试文章&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>http://localhost:1313/my-mod-site/mod/arknightsbg/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/my-mod-site/mod/arknightsbg/</guid>
+				<description>&lt;h2 id=&#34;待牢猫施工区域&#34;&gt;待牢猫施工区域&lt;/h2&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>http://localhost:1313/my-mod-site/mod/immediatedoom/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/my-mod-site/mod/immediatedoom/</guid>
+				<description>&lt;h2 id=&#34;待牢猫施工区域&#34;&gt;待牢猫施工区域&lt;/h2&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>http://localhost:1313/my-mod-site/mod/jx/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/my-mod-site/mod/jx/</guid>
+				<description>&lt;h2 id=&#34;待牢猫施工区域&#34;&gt;待牢猫施工区域&lt;/h2&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>http://localhost:1313/my-mod-site/mod/lifelink/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/my-mod-site/mod/lifelink/</guid>
+				<description>&lt;h2 id=&#34;待牢猫施工区域&#34;&gt;待牢猫施工区域&lt;/h2&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>http://localhost:1313/my-mod-site/mod/meme/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/my-mod-site/mod/meme/</guid>
+				<description>&lt;h2 id=&#34;待牢猫施工区域&#34;&gt;待牢猫施工区域&lt;/h2&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>http://localhost:1313/my-mod-site/mod/sharestate/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/my-mod-site/mod/sharestate/</guid>
+				<description>&lt;h2 id=&#34;待牢猫施工区域&#34;&gt;待牢猫施工区域&lt;/h2&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>http://localhost:1313/my-mod-site/mod/warg/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/my-mod-site/mod/warg/</guid>
+				<description>&lt;h2 id=&#34;待牢猫施工区域&#34;&gt;待牢猫施工区域&lt;/h2&gt;</description>
 			</item>
 	</channel>
 </rss>

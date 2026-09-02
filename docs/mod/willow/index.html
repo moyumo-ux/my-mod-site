@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head><script src="/my-mod-site/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=my-mod-site/livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>毕竟是法师呢（前方正在施工） | 驯猫糕手mod页</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/my-mod-site/css/base.css">
+    <link rel="stylesheet" href="/my-mod-site/css/loading.css">
+    <link rel="stylesheet" href="/my-mod-site/css/header.css">
+    <link rel="stylesheet" href="/my-mod-site/css/spectrum.css">
+    <link rel="stylesheet" href="/my-mod-site/css/doc-line.css">
+    <link rel="stylesheet" href="/my-mod-site/css/main.css">
+    <link rel="stylesheet" href="/my-mod-site/css/mod-cards.css">
+    <link rel="stylesheet" href="/my-mod-site/css/titlebar.css">
+    <style>
+        .detail-top-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .detail-top-wrapper .moddetail-top {
+            display: block;
+            width: 100%;
+            height: auto;
+            pointer-events: none;
+        }
+
+        .detail-top-wrapper .spectrum-bar-detail {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #FBFB45 0%, #a1a1aa 50%, #FBFB45 100%);
+            border-radius: 2px;
+            pointer-events: none;
+        }
+
+        .back-link-ef {
+            position: fixed;
+            left: 100px;
+            top: 20px;
+            z-index: 1002;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 1rem 0.5rem 0.75rem;
+            background-color: #3F3F46;
+            border: 1px solid transparent;
+            border-radius: 1px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-link-ef .ef-btn-indicator {
+            display: block;
+            width: 4px;
+            height: 18px;
+            background-color: #FBFB45;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .back-link-ef .ef-btn-text {
+            color: #e4e4e7;
+            font-weight: 600;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            transition: color 0.3s ease;
+        }
+
+        .back-link-ef:hover {
+            background-color: #FBFB45;
+            border-color: #FBFB45;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08), 0 8px 16px rgba(0, 0, 0, 0.06), 0 16px 32px rgba(0, 0, 0, 0.04), 0 0 0 1px #FBFB45;
+            transform: translateY(-2px);
+        }
+
+        .back-link-ef:hover .ef-btn-indicator {
+            width: 12px;
+            height: 12px;
+            background-color: #000;
+            clip-path: polygon(100% 0, 0 50%, 100% 100%);
+        }
+
+        .back-link-ef:hover .ef-btn-text {
+            color: #000;
+        }
+
+        @media (max-width: 768px) {
+            .back-link-ef {
+                left: 16px;
+                top: 70px;
+                padding: 0.4rem 0.8rem 0.4rem 0.6rem;
+            }
+            .back-link-ef .ef-btn-text {
+                font-size: 0.7rem;
+            }
+            .back-link-ef .ef-btn-indicator {
+                height: 14px;
+                width: 3px;
+            }
+            .back-link-ef:hover .ef-btn-indicator {
+                width: 10px;
+                height: 10px;
+            }
+        }
+
+        .mod-detail-wrapper {
+            display: flex;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            align-items: flex-start;
+        }
+
+        .mod-detail-content-wrap {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .mod-detail-header {
+            margin-bottom: 20px;
+        }
+        .mod-detail-header h1 {
+            margin: 0;
+            text-align: center;
+        }
+
+        .mod-detail-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+            text-align: left;
+        }
+
+        .mod-detail-content h2 {
+            font-size: 1.8rem;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e4e4e7;
+            scroll-margin-top: 80px;
+        }
+
+        .mod-detail-content h3 {
+            font-size: 1.4rem;
+            margin-top: 28px;
+            margin-bottom: 12px;
+            scroll-margin-top: 80px;
+        }
+
+        .mod-detail-content p {
+            margin-bottom: 16px;
+        }
+
+        .mod-detail-content ul,
+        .mod-detail-content ol {
+            margin-bottom: 16px;
+            padding-left: 24px;
+        }
+
+        .mod-detail-content img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        .mod-detail-content a {
+            color: #4CAE4F;
+            text-decoration: none;
+        }
+
+        .mod-detail-content a:hover {
+            text-decoration: underline;
+        }
+
+        .toc-sidebar {
+            position: sticky;
+            top: 100px;
+            width: 260px;
+            flex-shrink: 0;
+            max-height: calc(100vh - 140px);
+            overflow-y: auto;
+            padding: 16px 0 16px 16px;
+            border-left: 3px solid #e4e4e7;
+            align-self: flex-start;
+        }
+
+        .toc-sidebar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .toc-sidebar::-webkit-scrollbar-thumb {
+            background: #c0c0c0;
+            border-radius: 2px;
+        }
+
+        .toc-sidebar .toc-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
+            margin-bottom: 12px;
+        }
+
+        .toc-sidebar nav {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .toc-sidebar a {
+            display: block;
+            padding: 4px 0 4px 8px;
+            font-size: 0.85rem;
+            color: #555;
+            text-decoration: none;
+            border-left: 2px solid transparent;
+            transition: all 0.2s ease;
+            line-height: 1.4;
+        }
+
+        .toc-sidebar a:hover {
+            color: #222;
+            border-left-color: #FBFB45;
+            padding-left: 12px;
+        }
+
+        .toc-sidebar a.active {
+            color: #000;
+            font-weight: 600;
+            border-left-color: #FBFB45;
+            padding-left: 12px;
+        }
+
+        .toc-sidebar a.toc-h2 {
+            padding-left: 8px;
+        }
+
+        .toc-sidebar a.toc-h3 {
+            padding-left: 24px;
+            font-size: 0.78rem;
+        }
+
+        .toc-sidebar a.toc-h3.active {
+            padding-left: 28px;
+        }
+
+        @media (max-width: 900px) {
+            .mod-detail-wrapper {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .toc-sidebar {
+                position: relative;
+                top: 0;
+                width: 100%;
+                max-height: none;
+                border-left: none;
+                border-bottom: 2px solid #e4e4e7;
+                padding: 12px 0 16px 0;
+                overflow-y: visible;
+            }
+
+            .toc-sidebar nav {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 4px 16px;
+            }
+
+            .toc-sidebar a {
+                border-left: none;
+                border-bottom: 2px solid transparent;
+                padding: 4px 0;
+                font-size: 0.8rem;
+            }
+
+            .toc-sidebar a:hover,
+            .toc-sidebar a.active {
+                border-left: none;
+                border-bottom-color: #FBFB45;
+                padding-left: 0;
+            }
+
+            .toc-sidebar a.toc-h2 {
+                padding-left: 0;
+            }
+
+            .toc-sidebar a.toc-h3 {
+                padding-left: 8px;
+                font-size: 0.72rem;
+            }
+
+            .toc-sidebar a.toc-h3.active {
+                padding-left: 8px;
+            }
+        }
+
+        #mainContent {
+            position: relative;
+            z-index: 1;
+            padding-top: 130px;
+        }
+
+        @media (max-width: 768px) {
+            #mainContent {
+                padding-top: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="detail-top-wrapper">
+        <img src="/my-mod-site/images/moddetail_top.png" class="moddetail-top" alt="">
+        <div class="spectrum-bar-detail"></div>
+    </div>
+
+    <div style="position:fixed;top:10px;left:20px;z-index:1000;">
+        <img src="/my-mod-site/images/logo.png" alt="Logo1" style="height:50px;width:auto;display:block;">
+    </div>
+
+    <a href="/my-mod-site/" class="back-link-ef">
+        <span class="ef-btn-indicator"></span>
+        <span class="ef-btn-text">返回首页</span>
+    </a>
+
+    <img src="/my-mod-site/images/bottom2.png" class="bottom-img2" alt="">
+<img src="/my-mod-site/images/bottom.png" class="bottom-img" alt="">
+
+    <div id="mainContent" class="visible">
+        <div class="mod-detail-wrapper">
+            <div class="mod-detail-content-wrap">
+                <div class="mod-detail-header">
+                    <h1>毕竟是法师呢（前方正在施工）</h1>
+                </div>
+                <div class="mod-detail-content" id="modContent">
+                    <h2 id="模组介绍">模组介绍</h2>
+<p>薇洛的角色mod，包括纯净辅助功能、专属角色物品、被重构的技能树、影月阵营新技能。</p>
+<h2 id="新版技能树">新版技能树</h2>
+<p>“描述”内容中，开头标注*的是未作修改的原版条目。</p>
+<h3 id="打火机">打火机</h3>
+<table class="wikitable">
+  <thead>
+    <tr>
+      <th style="width: 18%;">技能</th>
+      <th style="width: 45%;">描述</th>
+      <th style="width: 37%;">特殊说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>可控燃烧 I</strong></td>
+      <td>*使用打火机攻击生物时，100%将其点燃。由薇洛造成的所有燃烧状态变为可控燃烧。薇洛可以远程对可控燃烧中的实体进行“煽动”，使其变成普通的燃烧。</td>
+      <td>无</td>
+    </tr>
+    <tr>
+      <td><strong>可控燃烧 II</strong></td>
+      <td>*被薇洛点燃的生物，燃烧状态持续时长+200%</td>
+      <td>无</td>
+    </tr>
+    <tr>
+      <td><strong>可控燃烧 III</strong></td>
+      <td>被薇洛点燃的生物，受到的燃烧伤害增加50%</td>
+      <td>增伤幅度默认50%，由模组配置在30%~110%之间调节</td>
+    </tr>
+  </tbody>
+</table>
+<table class="wikitable">
+  <thead>
+    <tr>
+      <th style="width: 18%;">技能</th>
+      <th style="width: 45%;">描述</th>
+      <th style="width: 37%;">特殊说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>明亮打火机 I</strong></td>
+      <td>*打火机的照明范围增加150%</td>
+      <td>无</td>
+    </tr>
+    <tr>
+      <td><strong>明亮打火机 II</strong></td>
+      <td>*打火机的照明范围增加300%</td>
+      <td>无</td>
+    </tr>
+  </tbody>
+</table>
+<table class="wikitable">
+  <thead>
+    <tr>
+      <th style="width: 18%;">技能</th>
+      <th style="width: 45%;">描述</th>
+      <th style="width: 37%;">特殊说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>饥饿打火机</strong></td>
+      <td>*可右键使用打火机吸收火焰、闷烧、以太余烬，并使用以太余烬恢复打火机耐久度</td>
+      <td>无</td>
+    </tr>
+    <tr>
+      <td><strong>余烬照料者</strong></td>
+      <td>1、附近燃烧的部分生物死亡时掉落以太余烬<br>
+      2、获得主动技能“火焰投掷”：点燃指定位置可燃物<br>
+      3、当启用配置“火团投掷”时，获得附带新技能“火团投掷”：在指定位置迸发出数团火焰形成火海
+      </td>
+      <td style="text-align:center; vertical-align:middle;">施法距离增加，可以对更远的目标位置释放</td>
+    </tr>
+    <tr>
+      <td><strong>燃烧术</strong></td>
+      <td>1、获得主动技能“燃烧术”：点燃自身附近敌人<br>
+      2、当启用配置“燃烧术AOE”时，同时释放向外扩大的火环，对所有触碰单位造成30点伤害
+      </td>
+      <td>1、燃烧术范围扩大了25%<br>
+      2、若学习了“燃烧伯尼”技能，则会强化范围内的巨大伯尼<br>
+      3、火环伤害类型为无来源的“火焰伤害”
+      </td>
+    </tr>
+    <tr>
+      <td><strong>火球术</strong></td>
+      <td>*在指定位置生成一颗火球，持续一天</td>
+      <td style="text-align:center; vertical-align:middle;">施法距离增加，可以在更远的地方召唤火球</td>
+    </tr>
+    <tr>
+      <td><strong>狂热焚烧</strong></td>
+      <td>1、原版效果是60秒内对燃烧状态敌人造成伤害+25%<br>
+      2、配置中“狂热焚烧”专栏对技能效果进行重构，在后文详细描述
+      </td>
+      <td style="text-align:center; vertical-align:middle;">狂热焚烧技能是Buff核心</td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="伯尼">伯尼</h3>
+<table class="wikitable">
+  <thead>
+    <tr>
+      <th style="width: 18%;">技能</th>
+      <th style="width: 45%;">描述</th>
+      <th style="width: 37%;">特殊说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>打补丁 I</strong></td>
+      <td>伯尼每秒恢复2点生命值</td>
+      <td>无</td>
+    </tr>
+    <tr>
+      <td><strong>打补丁 II</strong></td>
+      <td>伯尼受到攻击时回复1%已损生命值</td>
+      <td>无</td>
+    </tr>
+    <tr>
+      <td><strong>坚硬填料 I</strong></td>
+      <td>伯尼的生命值上限增加400</td>
+      <td>无</td>
+    </tr>
+    <tr>
+      <td><strong>坚硬填料 II</strong></td>
+      <td>伯尼的生命值上限增加1000</td>
+      <td>无</td>
+    </tr>
+    </tbody>
+</table>
+<table class="wikitable">
+  <thead>
+    <tr>
+      <th style="width: 18%;">技能</th>
+      <th style="width: 45%;">描述</th>
+      <th style="width: 37%;">特殊说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>理智小熊</strong></td>
+      <td>伯尼会在50%的理智阈值变身为巨大伯尼</td>
+      <td>无</td>
+    </tr>
+    <tr>
+      <td><strong>头脑发热</strong></td>
+      <td>1、巨大伯尼会嘲讽附近的敌对生物。<br>
+      2、伯尼在这些生物附近会无视玩家理智变为巨大伯尼
+      </td>
+      <td>无</td>
+    </tr>
+    <tr>
+      <td><strong>伯尼！！</strong></td>
+      <td>薇洛拥有阵营亲和时，装备伯尼能够使影怪和虚影保持中立</td>
+      <td style="text-align:center; vertical-align:middle;">拥有任一阵营亲和均可触发双阵营中立</td>
+    </tr>
+  </tbody>
+</table>
+<table class="wikitable">
+  <thead>
+    <tr>
+      <th style="width: 18%;">技能</th>
+      <th style="width: 45%;">描述</th>
+      <th style="width: 37%;">特殊说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>加速剂 I</strong></td>
+      <td>*伯尼的移速增加15%</td>
+      <td>无</td>
+    </tr>
+    <tr>
+      <td><strong>加速剂 II</strong></td>
+      <td>*伯尼的移速增加30%</td>
+      <td>无</td>
+    </tr>
+  </tbody>
+</table>
+<table class="wikitable">
+  <thead>
+    <tr>
+      <th style="width: 18%;">技能</th>
+      <th style="width: 45%;">描述</th>
+      <th style="width: 37%;">特殊说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>燃烧伯尼</strong></td>
+      <td>伯尼可以被点燃强化：<br>
+      1、20秒内小范围照明，并对攻击伯尼的生物造成50点反弹伤害<br>
+      2、启用配置“燃烧伯尼！”后，战斗中的伯尼会持续刷新上述效果
+      </td>
+      <td style="text-align:center; vertical-align:middle;">解锁所需伯尼技能数由8减为5个</td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="亲和">亲和</h3>
+<table class="wikitable">
+  <thead>
+    <tr>
+      <th style="width: 18%;">技能</th>
+      <th style="width: 45%;">描述</th>
+      <th style="width: 37%;">特殊说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>暗影伯尼</strong></td>
+      <td>*伯尼变为暗影阵营，获得位面实体抵抗和位面防御</td>
+      <td>无</td>
+    </tr>
+    <tr>
+      <td><strong>暗影循环</strong></td>
+      <td>1、获得主动技能“暗焰”：释放5团影火追击敌人，造成120点位面伤害和30点物理伤害<br>
+      2、若启用配置“夜奔”，则获得附加主动技能“夜奔”：开启时受到暗影侵蚀、降低理智上限，自动释放影火攻击附近敌人，不占用暗焰冷却，持续时间无限，再次释放夜奔时关闭<br>
+      3、若启用配置“暗焰循环”，则暗焰技能在狂热焚烧期间获得强化，效果将在后文狂热焚烧专栏进行描述
+      </td>
+      <td>1、影火优化：优先追击BOSS级生物，同级单位优先追击最近目标，可存在时间延长<br>
+      2、开启夜奔时，理智上限降低为50%，此时可以轻易激活伯尼，同时释放影火保护自己，相应地，在该理智状态下会源源不断地刷新出影怪，消耗物品栏中的以太余烬
+      </td>
+    </tr>
+    </tbody>
+</table>
+<h2 id="工坊地址">工坊地址</h2>
+<p><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=xxx">前往 Steam 创意工坊</a></p>
+<hr>
+<h2 id="更新日志">更新日志</h2>
+<p>信号中断区域</p>
+
+                </div>
+            </div>
+
+            <div class="toc-sidebar" id="tocSidebar">
+                <div class="toc-title">目录</div>
+                <nav id="tocNav"></nav>
+            </div>
+        </div>
+    </div>
+
+    <script src="/my-mod-site/js/mod-cards.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const content = document.getElementById('modContent');
+            const tocNav = document.getElementById('tocNav');
+            const headings = content.querySelectorAll('h2, h3');
+            const tocItems = [];
+
+            if (headings.length === 0) {
+                tocNav.innerHTML = '<span style="font-size:0.75rem;color:#aaa;">无目录</span>';
+                return;
+            }
+
+            headings.forEach(function(heading) {
+                const level = heading.tagName.toLowerCase();
+                const text = heading.textContent.trim();
+                const id = heading.id || text.replace(/\s+/g, '-').toLowerCase();
+
+                if (!heading.id) {
+                    heading.id = id;
+                }
+
+                const link = document.createElement('a');
+                link.href = '#' + id;
+                link.textContent = text;
+                link.className = 'toc-' + level;
+                link.dataset.target = id;
+
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.getElementById(id);
+                    if (target) {
+                        const topOffset = 80;
+                        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset -
+                            topOffset;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                        updateActive(id);
+                    }
+                });
+
+                tocNav.appendChild(link);
+                tocItems.push({
+                    id: id,
+                    element: link
+                });
+            });
+
+            function updateActive(activeId) {
+                tocItems.forEach(function(item) {
+                    if (item.id === activeId) {
+                        item.element.classList.add('active');
+                    } else {
+                        item.element.classList.remove('active');
+                    }
+                });
+            }
+
+            function onScroll() {
+                const scrollPosition = window.pageYOffset + 100;
+                let currentId = null;
+
+                headings.forEach(function(heading) {
+                    const offset = heading.getBoundingClientRect().top + window.pageYOffset;
+                    if (offset <= scrollPosition) {
+                        currentId = heading.id;
+                    }
+                });
+
+                if (currentId) {
+                    updateActive(currentId);
+                }
+            }
+
+            let ticking = false;
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        onScroll();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+
+            setTimeout(onScroll, 300);
+        });
+    </script>
+</body>
+</html>

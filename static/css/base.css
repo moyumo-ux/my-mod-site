@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-y: scroll;
+}
+
 body {
     min-height: 100vh;
     font-family: "Avenir Next", Avenir, sans-serif;
@@ -11,6 +15,7 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
 }
 
 .bottom-img,
@@ -28,4 +33,28 @@ body {
 .bottom-img {
     bottom: 0;
     height: 11px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 0px;
+    transition: background 0.2s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.15) rgba(255, 255, 255, 0.05);
 }

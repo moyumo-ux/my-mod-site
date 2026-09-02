@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/my-mod-site/css/base.css">
+    <link rel="stylesheet" href="/my-mod-site/css/loading.css">
+    <link rel="stylesheet" href="/my-mod-site/css/header.css">
+    <link rel="stylesheet" href="/my-mod-site/css/spectrum.css">
+    <link rel="stylesheet" href="/my-mod-site/css/doc-line.css">
+    <link rel="stylesheet" href="/my-mod-site/css/main.css">
+    <link rel="stylesheet" href="/my-mod-site/css/mod-cards.css">
+    <link rel="stylesheet" href="/my-mod-site/css/titlebar.css">
+</head>
+<body>
+    {{ partial "loading.html" . }}
+    {{ partial "header.html" . }}
+    {{ partial "spectrum.html" . }}
+    {{ partial "bottom.html" . }}
+
+    <div id="mainContent" class="visible">
+        <div class="doc-line">
+            <span class="doc-id">XUNCAT &amp; COLLABORATORS // DSTMOD INTRODUCTION</span>
+            <span style="flex:1"></span>
+            <span class="online-status">
+                <span class="online-dot"></span>
+                ONLINE
+            </span>
+        </div>
+
+        <!-- 页面内容 -->
+        <div class="mod-detail">
+            <h1>{{ .Title }}</h1>
+            <div class="mod-detail-content">
+                {{ .Content }}
+            </div>
+            <a href="/my-mod-site/" class="back-link">← 返回首页</a>
+        </div>
+    </div>
+
+    <script src="/my-mod-site/js/loading.js"></script>
+    <script src="/my-mod-site/js/mod-cards.js"></script>
+</body>
+</html>

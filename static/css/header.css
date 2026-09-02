@@ -1,8 +1,18 @@
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: transparent;
+    position: relative;
+    z-index: 10;
+}
+
 .logo {
-    position: fixed;
-    top: 10px;
-    left: 20px;
-    z-index: 1000;
+    position: relative;
+    top: auto;
+    left: auto;
+    z-index: auto;
     display: flex;
     align-items: center;
     gap: 15px;
@@ -17,7 +27,8 @@
     line-height: 0;
 }
 
-.logo2-wrapper {
+.logo2-wrapper,
+.logo3-wrapper {
     position: relative;
     display: inline-block;
     cursor: pointer;
@@ -27,14 +38,17 @@
     transition: all 0.3s ease;
 }
 
-.logo2-wrapper:hover {
+.logo2-wrapper:hover,
+.logo3-wrapper:hover {
     border-color: #FBFB45;
     box-shadow: 0 0 16px rgba(128, 128, 128, 0.35);
     transform: scale(1.05);
 }
 
 .logo2-wrapper::before,
-.logo2-wrapper::after {
+.logo2-wrapper::after,
+.logo3-wrapper::before,
+.logo3-wrapper::after {
     content: '';
     position: absolute;
     width: 0;
@@ -44,14 +58,16 @@
     pointer-events: none;
 }
 
-.logo2-wrapper::before {
+.logo2-wrapper::before,
+.logo3-wrapper::before {
     top: -1px;
     left: -1px;
     border-top: 3px solid #000000;
     border-left: 3px solid #000000;
 }
 
-.logo2-wrapper::after {
+.logo2-wrapper::after,
+.logo3-wrapper::after {
     bottom: -1px;
     right: -1px;
     border-bottom: 3px solid #000000;
@@ -59,8 +75,48 @@
 }
 
 .logo2-wrapper:hover::before,
-.logo2-wrapper:hover::after {
+.logo2-wrapper:hover::after,
+.logo3-wrapper:hover::before,
+.logo3-wrapper:hover::after {
     opacity: 1;
     width: 16px;
     height: 16px;
+}
+
+.flag-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.flag-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #18181b;
+    background: #FBFB45;
+    padding: 2px 7px;
+    border-radius: 1px;
+    letter-spacing: 1px;
+    align-self: flex-start;
+    margin-top: 0px;
+}
+
+.flag-right {
+    position: relative;
+    top: auto;
+    right: auto;
+    z-index: auto;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+}
+.flag-right img {
+    height: 40px;
+    width: auto;
+    display: block;
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.flag-right:hover {
+    opacity: 1;
 }

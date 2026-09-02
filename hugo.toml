@@ -2,3 +2,9 @@ baseURL = 'https://moyumo-ux.github.io/my-mod-site/'
 locale = 'zh-cn'
 title = '驯猫糕手mod页'
 publishDir = 'docs'
+
+[markup]
+  defaultMarkdownHandler = 'goldmark'
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
