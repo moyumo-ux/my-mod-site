@@ -1,0 +1,23 @@
+.transition-detail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999999;
+    display: grid;
+    pointer-events: none;
+    overflow: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.transition-detail.fadeout {
+    opacity: 0;
+}
+
+.transition-detail .td-square {
+    width: 100%;
+    height: 100%;
+}
+
+.transition-detail .td-square.yellow { background: #FFFF19; }
+.transition-detail .td-square.white  { background: #FFFFFF; }
+.transition-detail .td-square.empty  { background: transparent; }

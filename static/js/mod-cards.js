@@ -33,4 +33,30 @@
             attempts++;
         }
     });
+
+    const prefetched = new Set();
+
+    function prefetch(url) {
+        if (!url || prefetched.has(url)) return;
+        prefetched.add(url);
+
+        const link = document.createElement('link');
+        link.rel = 'prefetch';
+        link.href = url;
+        document.head.appendChild(link);
+    }
+
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            prefetch(this.href);
+        }, { once: true });
+    });
+
+    if ('ontouchstart' in window) {
+        setTimeout(() => {
+            cards.forEach(card => {
+                prefetch(card.href);
+            });
+        }, 1000);
+    }
 })();

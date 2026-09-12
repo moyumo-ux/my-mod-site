@@ -103,3 +103,19 @@
 .mod-detail-content table tr:hover {
     background: rgba(251,251,69,0.15);
 }
+
+.mod-detail-content video {
+    display: block;
+    width: 25%;
+    max-width: 200px;
+    border-radius: 12px;
+    margin: 10px 0;
+}
+
+@media (max-width: 768px) {
+    .mod-detail-content video {
+        width: 80%;
+        max-width: 100%;
+        margin: 10px auto;
+    }
+}

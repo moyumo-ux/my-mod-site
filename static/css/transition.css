@@ -1,0 +1,18 @@
+.transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999999;
+    display: grid;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.transition-square {
+    width: 100%;
+    height: 100%;
+}
+
+.transition-square.dark   { background: #FFFFFF; }
+.transition-square.yellow { background: #FFFF19; }
+.transition-square.empty  { background: transparent; }

@@ -17,12 +17,14 @@
     <link rel="stylesheet" href="/my-mod-site/css/main.css">
     <link rel="stylesheet" href="/my-mod-site/css/mod-cards.css">
     <link rel="stylesheet" href="/my-mod-site/css/titlebar.css">
+    <link rel="stylesheet" href="/my-mod-site/css/transition.css">
+    <link rel="stylesheet" href="/my-mod-site/css/transition-detail.css">
     <style>
         .detail-top-wrapper {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100vw;
+            width: 100%;
             z-index: 2;
             pointer-events: none;
         }
@@ -193,9 +195,55 @@
             flex-shrink: 0;
             max-height: calc(100vh - 140px);
             overflow-y: auto;
-            padding: 16px 0 16px 16px;
-            border-left: 3px solid #e4e4e7;
+            padding: 16px 0 16px 19px;
+            border-left: none;
             align-self: flex-start;
+            animation: tocSlideIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.7s both;
+        }
+
+        .toc-sidebar::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 72px;
+            background: #e4e4e7;
+            pointer-events: none;
+            animation: tocGrayShrink 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.7s both;
+        }
+
+        .toc-sidebar::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 60px;
+            background: #FBFB45;
+            pointer-events: none;
+            animation: tocYellowShrink 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.7s both;
+        }
+
+        @keyframes tocGrayShrink {
+            0%   { width: 72px; }
+            100% { width: 3px; }
+        }
+
+        @keyframes tocYellowShrink {
+            0%   { width: 60px; }
+            100% { width: 0; }
+        }
+
+        @keyframes tocSlideIn {
+            0% {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .toc-sidebar::-webkit-scrollbar {
@@ -232,6 +280,19 @@
             border-left: 2px solid transparent;
             transition: all 0.2s ease;
             line-height: 1.4;
+            animation: tocItemSlideIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+            animation-delay: 0.4s;
+        }
+
+        @keyframes tocItemSlideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .toc-sidebar a:hover {
@@ -275,6 +336,12 @@
                 border-bottom: 2px solid #e4e4e7;
                 padding: 12px 0 16px 0;
                 overflow-y: visible;
+                animation: none;
+            }
+
+            .toc-sidebar::before,
+            .toc-sidebar::after {
+                display: none;
             }
 
             .toc-sidebar nav {
@@ -288,6 +355,7 @@
                 border-bottom: 2px solid transparent;
                 padding: 4px 0;
                 font-size: 0.8rem;
+                animation: none;
             }
 
             .toc-sidebar a:hover,
@@ -325,6 +393,7 @@
     </style>
 </head>
 <body>
+    {{ partial "transition-detail.html" . }}
     <div class="detail-top-wrapper">
         <img src="/my-mod-site/images/moddetail_top.png" class="moddetail-top" alt="">
         <div class="spectrum-bar-detail"></div>
@@ -359,7 +428,7 @@
         </div>
     </div>
 
-    <script src="/my-mod-site/js/mod-cards.js"></script>
+    <script src="/my-mod-site/js/transition-detail.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const content = document.getElementById('modContent');
@@ -372,7 +441,7 @@
                 return;
             }
 
-            headings.forEach(function(heading) {
+            headings.forEach(function(heading, index) {
                 const level = heading.tagName.toLowerCase();
                 const text = heading.textContent.trim();
                 const id = heading.id || text.replace(/\s+/g, '-').toLowerCase();
@@ -386,6 +455,7 @@
                 link.textContent = text;
                 link.className = 'toc-' + level;
                 link.dataset.target = id;
+                link.style.animationDelay = (1 + index * 0.05) + 's';
 
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -449,5 +519,7 @@
             setTimeout(onScroll, 300);
         });
     </script>
+    
+    <script src="/my-mod-site/js/custom-scrollbar.js"></script>
 </body>
 </html>
