@@ -2,12 +2,24 @@
 title: "毕竟是法师呢"
 ---
 
-## 模组介绍
+<h2 data-en="MOD INTRODUCTION" id="模组介绍">模组介绍</h2>
+
+<details class="fold-line">
+<summary></summary>
+
 《饥荒联机版》薇洛的角色mod，包括纯净辅助功能、专属角色物品、被重构的技能树、影月阵营新技能。
 
-## 新版技能树
+</details>
+
+<h2 data-en="NEW SKILL TREE" id="新版技能树">新版技能树</h2>
+
+<details class="fold-line">
+<summary></summary>
+
 “描述”内容中，开头标注*的是未作修改的原版条目。
+
 ### 打火机
+
 <table class="wikitable">
   <thead>
     <tr>
@@ -103,6 +115,7 @@ title: "毕竟是法师呢"
 </table>
 
 ### 伯尼
+
 <table class="wikitable">
   <thead>
     <tr>
@@ -206,6 +219,7 @@ title: "毕竟是法师呢"
 </table>
 
 ### 亲和
+
 <table class="wikitable">
   <thead>
     <tr>
@@ -227,7 +241,7 @@ title: "毕竟是法师呢"
       </td>
       <td>1、影火优化：优先追击BOSS级生物，同级单位优先追击最近目标，可存在时间延长<br>
       2、若启用配置“暗焰循环”，则暗焰技能在狂热焚烧期间获得强化，效果将在后文狂热焚烧专栏进行描述<br>
-      3、开启夜奔时，理智上限降低50%，此时可以轻易激活伯尼，同时释放影火保护自己，相应地，在该理智状态下会源源不断地刷新出影怪，消耗物品栏中的以太余烬
+      3、开启夜奔时，理智上限降低50%，此时可以轻易激活伯尼，同时自动释放影火保护薇洛，相应地，在该理智状态下会源源不断地刷新出影怪，它们的出现会持续消耗薇洛的以太余烬
       </td>
     </tr>
     </tbody>
@@ -259,17 +273,31 @@ title: "毕竟是法师呢"
     </tbody>
 </table>
 
-## 基础属性
+</details>
+
+<h2 data-en="BASE ATTRIBUTES" id="基础属性">基础属性</h2>
+
+<details class="fold-line">
+<summary></summary>
+
 #### 1、理智值
 配置可修改薇洛理智上限为75~200点。个人推荐使用75。
+
 #### 2、理智变化速率
 - 若启用配置“理智变化速率”，则薇洛理智增加或者减少速度变为1.28倍，即理智受环境影响更小。若物品栏或者装备栏中存在伯尼，则该数值变为0.72倍，即理智受环境影响而变化的幅度更大。
 - 上述效果作用于：疯狂光环、影刀和绝望石套装等装备的降san光环，以及薇洛在火焰附近时获得的恢复理智光环。
 - 但不会影响一次性获得的理智值，如从食物中恢复的理智值。
+
 #### 3、生命值
 启动服务器之前，配置可选择薇洛的游玩风格，其中“近战法师”的生命上限为200点。
 
-## 游玩风格
+</details>
+
+<h2 data-en="PLAYSTYLE" id="游玩风格">游玩风格</h2>
+
+<details class="fold-line">
+<summary></summary>
+
 除了原版内容之外，额外提供了两种特别的游玩风格。<br>
 两种游玩风格仅在 狂热焚烧Buff 的作用下具有下列效果：<br>
 - 远程术师：该形态下具有更强的技能输出能力，但生存能力相对脆弱。所有主动技能冷却时间相互独立，包括暗焰、月焰、冰息等；受到的物理伤害增加20%。
@@ -277,58 +305,76 @@ title: "毕竟是法师呢"
 
 未使用狂热焚烧时，薇洛是正常形态。
 
-## 狂热焚烧
+</details>
+
+<h2 data-en="FEVER BURN" id="狂热焚烧">狂热焚烧</h2>
+
+<details class="fold-line">
+<summary></summary>
+
 配置界面为“狂热焚烧”技能开设专栏，用于修改该技能的相关增益启用与否。<br>
 在各项均开启的情况下，狂热焚烧具有如下效果：
 - 技能由持续时间20秒变为持续时间无限，再次使用技能时关闭。
 - 对潮湿/干燥/燃烧状态的目标造成伤害倍率为100%/125%/150%。
 - 薇洛燃烧自身，变为64度热源，小范围照明<br>
-<video autoplay loop muted preload="none">
+<video loop muted preload="metadata" playsinline>
   <source src="/my-mod-site/images/video1.mp4" type="video/mp4">
 </video><br>
 <br>
 - 移动速度更快、工作效率更高，持续缓慢流失生命值、恢复理智值。
 - 暗焰技能获得强化：可以三连发，之后进入长冷却。<br>
-<video autoplay loop muted preload="none">
+<video loop muted preload="metadata" playsinline>
   <source src="/my-mod-site/images/video2.mp4" type="video/mp4">
 </video><br>
 消耗物品栏中的噩梦燃料可以释放更多暗焰。
 - 月焰技能获得强化：持续时间无限，每秒消耗1个以太余烬，再次释放月焰时关闭。
 - “化火”闪避：在原地留下一团火焰，点燃附近敌人，之后向鼠标方向冲刺，期间具有无敌。<br>
-<video autoplay loop muted preload="none">
+<video loop muted preload="metadata" playsinline>
   <source src="/my-mod-site/images/video3.mp4" type="video/mp4">
 </video><br>
 
-## 纯净辅助
+</details>
+
+<h2 data-en="PURE ASSIST" id="纯净辅助">纯净辅助</h2>
+
+<details class="fold-line">
+<summary></summary>
+
 - 耐用打火机：打火机最大使用时长为8天，每个以太余烬为其回复约7%耐久度。使用以太余烬填充打火机时，一次性消耗相应数量余烬，将打火机回复至满耐久。
 - 打火机成组烹饪：使用打火机烹饪食物时，一次烹饪一整组，并消耗相应数量耐久度。<br>
-<video autoplay loop muted preload="none">
+<video loop muted preload="metadata" playsinline>
   <source src="/my-mod-site/images/video4.mp4" type="video/mp4">
 </video><br>
 <br>
 - 技能冷却计时器：在物品栏左边显示一个技能冷却计时器，优先显示影火冷却。<br>
-<video autoplay loop muted preload="none">
+<video loop muted preload="metadata" playsinline>
   <source src="/my-mod-site/images/video5.mp4" type="video/mp4">
 </video><br>
 <br>
 - 自动收集余烬：靠近以太余烬时自动收集到物品栏。<br>
-<video autoplay loop muted preload="none">
+<video loop muted preload="metadata" playsinline>
   <source src="/my-mod-site/images/video6.mp4" type="video/mp4">
 </video><br>
 <br>
 - 自定义技能快捷键：可以将主动技能绑定到键盘按键。
 - 快速吃蜂蜜：一次性吃掉5个蜂蜜。
 - 蜂巢缓慢回血：杀人蜂巢与蜂巢会缓慢回血，用于补偿被蜜蜂们的火焰灼烧掉的血。<br>
-<video autoplay loop muted preload="none">
+<video loop muted preload="metadata" playsinline>
   <source src="/my-mod-site/images/video7.mp4" type="video/mp4">
 </video><br>
 <br>
 - 必刷杀人蜂平原：生成地图时，会包含一个杀人蜂平原。
 
-## 功能辅助
+</details>
+
+<h2 data-en="FUNCTION ASSIST" id="功能辅助">功能辅助</h2>
+
+<details class="fold-line">
+<summary></summary>
+
 - 每日签到：每活一天都会获得余烬奖励，直接发放到物品栏。
 - 燃烧术AOE：释放燃烧术时，生成一圈火环，造成火焰伤害。<br>
-<video autoplay loop muted preload="none">
+<video loop muted preload="metadata" playsinline>
   <source src="/my-mod-site/images/video8.mp4" type="video/mp4">
 </video><br>
 <br>
@@ -337,30 +383,51 @@ title: "毕竟是法师呢"
 <br>
 - 影火索敌优化：影火优先追击BOSS级生物，存在同级单位时，优先追击最近目标。
 - 意念控火术：右键自身释放控火术，吸收附近火焰、闷烧、以太余烬。<br>
-<video autoplay loop muted preload="none">
+<video loop muted preload="metadata" playsinline>
   <source src="/my-mod-site/images/video9.mp4" type="video/mp4">
 </video><br>
 <br>
 - 火焰武器：从火把或打火机切换到其他装备后会继续火焰效果，保留特效、照明、攻击命中点燃。<br>
-<video autoplay loop muted preload="none">
+<video loop muted preload="metadata" playsinline>
   <source src="/my-mod-site/images/video10.mp4" type="video/mp4">
 </video><br>
 <br>
 - 伯尼背包：物品形态的伯尼变为背包形式。（我喜欢这个）
 - 针线包修补：针线包效率减半，使用次数翻倍，用蜘蛛丝修补使用次数。
 - 泡岩浆池：薇洛可以跳入岩浆池并在其中沐浴。<br>
-<video autoplay loop muted preload="none">
+<video loop muted preload="metadata" playsinline>
   <source src="/my-mod-site/images/video11.mp4" type="video/mp4">
 </video><br>
 <br>
 
-## 模组物品
+</details>
+
+<h2 data-en="MOD ITEMS" id="模组物品">模组物品</h2>
+
+<details class="fold-line">
+<summary></summary>
+
 ### 龙刃
 
-## 工坊地址
+// 灼热的火焰刀，在高温度时额外造成“火焰伤害”<br>
+// 装备者双击F键能够躲避敌人攻击并发起跳斩<br>
+
+</details>
+
+<h2 data-en="STEAM WORKSHOP" id="工坊地址">工坊地址</h2>
+
+<details class="fold-line">
+<summary></summary>
+
 [前往 Steam 创意工坊](https://steamcommunity.com/sharedfiles/filedetails/?id=3490741591)
 
----
+</details>
 
-## 更新日志
+<h2 data-en="CHANGELOG" id="更新日志">更新日志</h2>
+
+<details class="fold-line">
+<summary></summary>
+
 信号中断区域
+
+</details>

@@ -1,0 +1,49 @@
+/* ===== 表格 ===== */
+.mod-detail-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.95rem;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.mod-detail-content table th,
+.mod-detail-content table td {
+    padding: 10px 14px;
+    border: 1px solid #d0d0d0;
+    text-align: left;
+    vertical-align: top;
+}
+
+.mod-detail-content table thead tr {
+    background: linear-gradient(to right, #444444 0%, #0c0c0c 100%);
+}
+
+.mod-detail-content table th {
+    background: transparent;
+    color: #ffffff;
+    font-weight: 600;
+    border-color: #555;
+    border-bottom: 2px solid #555;
+}
+
+.mod-detail-content table tbody tr:nth-child(even) {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.mod-detail-content table tbody tr:hover {
+    background: rgba(251, 251, 69, 0.15);
+}
+
+/* 表头 hover 补丁 */
+.mod-detail-content table thead tr:hover,
+.mod-detail-content table thead th:hover {
+    background: transparent;
+}
+
+.mod-detail-content table thead tr:hover {
+    background: linear-gradient(to right, #4e4e4e 0%, #0c0c0c 100%);
+}

@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="/my-mod-site/css/titlebar.css">
     <link rel="stylesheet" href="/my-mod-site/css/transition.css">
     <link rel="stylesheet" href="/my-mod-site/css/transition-detail.css">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="/my-mod-site/css/footer.css">
 </head>
 <body>
     {{ partial "loading.html" . }}
@@ -26,8 +28,16 @@
     {{ partial "spectrum.html" . }}
     {{ partial "bottom.html" . }}
     {{ partial "main-content.html" . }}
+    <div class="dot-band-wrap">
+    <div class="dot-band"></div>
+        <svg class="dot-band-deco" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 103 25">
+            <path fill-rule="evenodd" fill="currentColor" d="M100.406,10.133 L100.406,7.433 L103.000,7.433 L103.000,10.133 L100.406,10.133 ZM71.886,7.433 L97.813,7.433 L97.813,10.133 L71.886,10.133 L71.886,7.433 ZM79.428,0.999 L87.445,0.999 L87.445,3.699 L79.428,3.699 L79.428,0.999 ZM71.886,0.999 L77.074,0.999 L77.074,3.699 L71.886,3.699 L71.886,0.999 ZM32.999,7.433 L69.296,7.433 L69.296,10.133 L32.999,10.133 L32.999,7.433 ZM45.960,0.999 L69.296,0.999 L69.296,3.699 L45.960,3.699 L45.960,0.999 ZM32.999,0.999 L43.370,0.999 L43.370,3.699 L32.999,3.699 L32.999,0.999 ZM0.975,0.479 L25.125,0.479 L25.125,24.629 L0.975,24.629 L0.975,0.479 ZM2.105,23.499 L23.994,23.499 L23.994,1.610 L2.105,1.610 L2.105,23.499 ZM7.240,7.544 L8.039,6.744 L18.860,17.565 L18.060,18.364 L7.240,7.544 ZM35.593,16.566 L32.999,16.566 L32.999,13.867 L35.593,13.867 L35.593,16.566 ZM35.593,23.000 L32.999,23.000 L32.999,20.301 L35.593,20.301 L35.593,23.000 ZM48.554,16.566 L38.183,16.566 L38.183,13.867 L48.554,13.867 L48.554,16.566 ZM74.480,13.867 L74.480,16.566 L51.148,16.566 L51.148,13.867 L74.480,13.867 ZM74.480,23.000 L38.183,23.000 L38.183,20.301 L74.480,20.301 L74.480,23.000 L38.183,23.000 ZM82.258,16.566 L77.074,16.566 L77.074,13.867 L82.258,13.867 L82.258,16.566 ZM89.543,16.566 L84.359,16.566 L84.359,13.867 L89.543,13.867 L89.543,16.566 Z"/>
+        </svg>
+    </div>
+    {{ partial "footer.html" . }}
     <script src="/my-mod-site/js/loading.js"></script>
     <script src="/my-mod-site/js/mod-cards.js"></script>
     <script src="/my-mod-site/js/transition.js"></script>
+    <script src="/my-mod-site/js/footer.js"></script>
 </body>
 </html>

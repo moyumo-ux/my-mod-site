@@ -1,0 +1,118 @@
+/* ===== 详情页顶部装饰 ===== */
+.detail-top-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.detail-top-wrapper .moddetail-top {
+    display: block;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+}
+
+.detail-top-wrapper .spectrum-bar-detail {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #FBFB45 0%, #a1a1aa 50%, #FBFB45 100%);
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+/* ===== 顶部 Logo ===== */
+.detail-logo {
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.detail-logo img {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+.back-link-ef {
+    position: fixed;
+    left: 100px;
+    top: 20px;
+    z-index: 1002;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 1rem 0.5rem 0.75rem;
+    background-color: #383838;
+    background-image: url('/my-mod-site/images/image2.png');
+    background-size: 150% auto;
+    background-position: 100% center;
+    background-repeat: no-repeat;
+    background-blend-mode: screen;
+    border: 1px solid transparent;
+    border-radius: 1px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.back-link-ef .ef-btn-indicator {
+    display: block;
+    width: 4px;
+    height: 18px;
+    background-color: #FBFB45;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.back-link-ef .ef-btn-text {
+    color: #e4e4e7;
+    font-weight: 600;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.back-link-ef:hover {
+    background-color: #FBFB45;
+    border-color: #FBFB45;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08), 0 8px 16px rgba(0, 0, 0, 0.06), 0 16px 32px rgba(0, 0, 0, 0.04), 0 0 0 1px #FBFB45;
+    transform: translateY(-2px);
+}
+
+.back-link-ef:hover .ef-btn-indicator {
+    width: 12px;
+    height: 12px;
+    background-color: #000;
+    clip-path: polygon(100% 0, 0 50%, 100% 100%);
+}
+
+.back-link-ef:hover .ef-btn-text {
+    color: #000;
+}
+
+@media (max-width: 768px) {
+    .back-link-ef {
+        left: 16px;
+        top: 70px;
+        padding: 0.4rem 0.8rem 0.4rem 0.6rem;
+    }
+    .back-link-ef .ef-btn-text {
+        font-size: 0.7rem;
+    }
+    .back-link-ef .ef-btn-indicator {
+        height: 14px;
+        width: 3px;
+    }
+    .back-link-ef:hover .ef-btn-indicator {
+        width: 10px;
+        height: 10px;
+    }
+}

@@ -39,24 +39,44 @@
     function prefetch(url) {
         if (!url || prefetched.has(url)) return;
         prefetched.add(url);
-
         const link = document.createElement('link');
         link.rel = 'prefetch';
         link.href = url;
         document.head.appendChild(link);
     }
 
+    function preloadDoc(url) {
+        if (!url || prefetched.has(url)) return;
+        prefetched.add(url);
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.href = url;
+        link.as = 'document';
+        document.head.appendChild(link);
+    }
+
+    function preloadAll() {
+        cards.forEach(card => {
+            if (card.href) preloadDoc(card.href);
+        });
+
+        prefetch('/my-mod-site/css/transition-detail.css');
+        prefetch('/my-mod-site/js/transition-detail.js');
+        prefetch('/my-mod-site/js/custom-scrollbar.js');
+        prefetch('/my-mod-site/images/moddetail_top.png');
+        prefetch('/my-mod-site/images/logo.png');
+    }
+
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(preloadAll, { timeout: 3000 });
+    } else {
+        window.addEventListener('load', () => setTimeout(preloadAll, 500));
+    }
+
     cards.forEach(card => {
         card.addEventListener('mouseenter', function() {
-            prefetch(this.href);
+            if (!this.href) return;
+            fetch(this.href, { credentials: 'same-origin' }).catch(() => {});
         }, { once: true });
     });
-
-    if ('ontouchstart' in window) {
-        setTimeout(() => {
-            cards.forEach(card => {
-                prefetch(card.href);
-            });
-        }, 1000);
-    }
 })();
