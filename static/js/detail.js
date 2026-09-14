@@ -100,15 +100,17 @@
 
         setTimeout(onScroll, 300);
 
-        // 仅在新会话中强制收起所有折叠块（刷新不重置）
+        // 仅在新会话中强制收起折叠块（刷新不重置）
+        // 带 fold-open 类的默认展开，跳过
         if (!sessionStorage.getItem('foldInitialized')) {
             document.querySelectorAll('.mod-detail-content details.fold-line').forEach(function(details) {
+                if (details.classList.contains('fold-open')) return;
                 details.removeAttribute('open');
             });
             sessionStorage.setItem('foldInitialized', '1');
         }
 
-                // ===== 折叠块：注入背景层 + 线条双层 + 标签 + 箭头 =====
+        // ===== 折叠块：注入背景层 + 线条双层 + 标签 + 箭头 =====
         document.querySelectorAll('.mod-detail-content details.fold-line').forEach(function(details) {
             const summary = details.querySelector('summary');
             if (!summary || summary.querySelector('.fold-line-wrap')) return;
@@ -152,6 +154,9 @@
             details.addEventListener('toggle', function() {
                 label.textContent = details.open ? '// 收起' : '// 展开详情';
             });
+
+            // 初始化时根据 open 状态同步文字
+            label.textContent = details.open ? '// 收起' : '// 展开详情';
 
             // 悬停整个右侧组（文字 + 空隙 + 箭头）都触发
             rightGroup.addEventListener('mouseenter', function() {

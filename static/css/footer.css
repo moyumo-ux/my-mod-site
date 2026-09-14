@@ -179,7 +179,11 @@
 
 .mail-popup-inner {
     position: relative;
-    background: #141414;
+    background-color: #141414;
+    background-image: url('/my-mod-site/images/popup-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     color: #f0f0f0;
     padding: 28px 36px 24px;
     border-radius: 4px;
@@ -189,6 +193,7 @@
     border-top: 2px solid #FBFB45;
     transform: translateY(8px);
     transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    overflow: hidden;
 }
 
 .mail-popup.active .mail-popup-inner {

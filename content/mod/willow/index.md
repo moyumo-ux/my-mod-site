@@ -4,7 +4,7 @@ title: "毕竟是法师呢"
 
 <h2 data-en="MOD INTRODUCTION" id="模组介绍">模组介绍</h2>
 
-<details class="fold-line">
+<details class="fold-line fold-open" open>
 <summary></summary>
 
 《饥荒联机版》薇洛的角色mod，包括纯净辅助功能、专属角色物品、被重构的技能树、影月阵营新技能。
@@ -96,7 +96,7 @@ title: "毕竟是法师呢"
       </td>
       <td>1、燃烧术范围扩大了25%<br>
       2、若学习了“燃烧伯尼”技能，则会强化范围内的巨大伯尼<br>
-      3、火环伤害类型为无来源的“火焰伤害”
+      3、火环伤害类型为无来源的<span style="color: #C1342B;">火焰伤害</span>
       </td>
     </tr>
     <tr>
@@ -373,7 +373,7 @@ title: "毕竟是法师呢"
 <summary></summary>
 
 - 每日签到：每活一天都会获得余烬奖励，直接发放到物品栏。
-- 燃烧术AOE：释放燃烧术时，生成一圈火环，造成火焰伤害。<br>
+- 燃烧术AOE：释放燃烧术时，生成一圈火环，造成30点<span style="color: #C1342B;">火焰伤害</span>。<br>
 <video loop muted preload="metadata" playsinline>
   <source src="/my-mod-site/images/video8.mp4" type="video/mp4">
 </video><br>
@@ -408,10 +408,134 @@ title: "毕竟是法师呢"
 <summary></summary>
 
 ### 龙刃
+```lua
+c_give("fire_machete")
+```
+龙刃是一把会随刀刃温度改变外观与火焰附着的武器。它同时具备武器、斧头、镰刀的功能：既能砍树、范围收割植物，也能在普通攻击中随机触发快划、连刺、挥砍等特殊动作。
 
-// 灼热的火焰刀，在高温度时额外造成“火焰伤害”<br>
-// 装备者双击F键能够躲避敌人攻击并发起跳斩<br>
+温度越高，刀刃外观越红艳，额外<span style="color: #C1342B;">火焰伤害</span>越高；当温度达到 55 以上时，它还能缓慢修复自身耐久。
+<br>
+<br>
 
+#### 基础属性
+
+<table class="wikitable">
+  <thead>
+    <tr>
+      <th style="width: 50%;">属性</th>
+      <th style="width: 50%;">数值 / 效果</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>基础伤害</td><td>51</td></tr>
+    <tr><td>耐久耗尽后伤害</td><td>17</td></tr>
+    <tr><td>最大耐久</td><td>200</td></tr>
+    <tr><td>移速加成</td><td>+10%</td></tr>
+    <tr><td>物品潮湿</td><td>不会潮湿</td></tr>
+    <tr><td>漂浮</td><td>支持</td></tr>
+    <tr><td>工具动作</td><td>砍伐、收割</td></tr>
+  </tbody>
+</table>
+<br>
+
+#### 温度形态与火焰附着
+
+龙刃带有温度机制，受到环境温度的影响。装备后，外观会根据温度变化：
+
+<table class="wikitable">
+  <thead>
+    <tr>
+      <th style="width: 30%;">温度区间</th>
+      <th style="width: 35%;">外观</th>
+      <th style="width: 35%;">额外火焰伤害</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>&lt; 25</td><td>普通</td><td>0</td></tr>
+    <tr><td>25 ~ 35</td><td>黄色</td><td>5</td></tr>
+    <tr><td>35 ~ 45</td><td>橙色</td><td>12</td></tr>
+    <tr><td>≥ 45</td><td>红色</td><td>20</td></tr>
+  </tbody>
+</table>
+
+<span style="color: #C1342B;">火焰伤害</span>会在攻击造成伤害时等量地附加到该次伤害中，无视防御、位面实体抵抗的减免。
+
+每次攻击命中时，如果刀刃当前温度低于 52，则温度 +2。也就是说，仅靠攻击最多把砍刀加热到 52 左右，想要达到更高温度，需要借助夏季、火堆、岩浆等高温环境。
+
+当刀刃温度 ≥ 55 时，会触发修复效果：每秒修复 1 耐久。
+<br>
+<br>
+
+#### 普通攻击机制
+
+龙刃首次攻击通常为普通攻击。每次攻击命中后，武器的下一次普通攻击会使用随机的特殊动作。
+
+随机池包含：
+
+<table class="wikitable">
+  <thead>
+    <tr>
+      <th style="width: 15%;">动作模组</th>
+      <th style="width: 15%;">概率</th>
+      <th style="width: 70%;">效果</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>快划</td>
+      <td>25%</td>
+      <td>对目标周围半径 3 范围造成攻击，带蓝色光效与音效</td>
+    </tr>
+    <tr>
+      <td>挥砍</td>
+      <td>25%</td>
+      <td>对目标周围半径 3 范围造成攻击，与快划不同的是，挥砍使用另一种动画</td>
+    </tr>
+    <tr>
+      <td>连刺</td>
+      <td>25%</td>
+      <td>多段少量伤害，可以快速触发武器的火焰附着</td>
+    </tr>
+    <tr>
+      <td>无特殊</td>
+      <td>25%</td>
+      <td>普通的攻击动作</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+
+#### 主动技能 // 跳斩
+
+装备龙刃后，可通过两种方式释放跳斩：
+- 鼠标右键发动，跃向指定位置，之后技能进入7秒冷却时间。
+- 双击F键发动，技能进入一半的冷却时间。
+
+**伤害计算**：对落地半径 8 内敌人造成伤害：41 + 目标最大生命 × 0.7%
+<br>
+<br>
+
+#### 工具功能
+
+龙刃可作为砍伐工具和收割工具使用。
+
+- **砍伐**：每次消耗 1 耐久。
+- **收割**：每次消耗 1 耐久。
+<br>
+<br>
+
+#### 损坏与修复
+
+当耐久耗尽时：
+
+- 武器伤害降为 17。
+- 武器不会消失，仍可继续攻击。
+
+当刀刃温度达到 55 以上会缓慢修复耐久，每秒修复 1。
+
+因此，龙刃可以通过高温环境"自我修复"。夏季、火堆旁、岩浆附近等场景都能帮助它恢复。
+<br>
+<br>
 </details>
 
 <h2 data-en="STEAM WORKSHOP" id="工坊地址">工坊地址</h2>
