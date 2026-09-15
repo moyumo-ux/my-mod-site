@@ -431,7 +431,7 @@ c_give("fire_machete")
     <tr><td>耐久耗尽后伤害</td><td>17</td></tr>
     <tr><td>最大耐久</td><td>200</td></tr>
     <tr><td>移速加成</td><td>+10%</td></tr>
-    <tr><td>物品潮湿</td><td>不会潮湿</td></tr>
+    <tr><td>物品潮湿度</td><td>不会潮湿</td></tr>
     <tr><td>漂浮</td><td>支持</td></tr>
     <tr><td>工具动作</td><td>砍伐、收割</td></tr>
   </tbody>
@@ -460,7 +460,7 @@ c_give("fire_machete")
 
 <span style="color: #C1342B;">火焰伤害</span>会在攻击造成伤害时等量地附加到该次伤害中，无视防御、位面实体抵抗的减免。
 
-每次攻击命中时，如果刀刃当前温度低于 52，则温度 +2。也就是说，仅靠攻击最多把砍刀加热到 52 左右，想要达到更高温度，需要借助夏季、火堆、岩浆等高温环境。
+每次攻击命中时，如果刀刃当前温度低于 52，则温度 +2。也就是说，仅靠攻击最多把刀刃加热到 52 左右，想要达到更高温度，需要借助夏季、火堆、岩浆等高温环境。
 
 当刀刃温度 ≥ 55 时，会触发修复效果：每秒修复 1 耐久。
 <br>
@@ -509,9 +509,11 @@ c_give("fire_machete")
 
 装备龙刃后，可通过两种方式释放跳斩：
 - 鼠标右键发动，跃向指定位置，之后技能进入7秒冷却时间。
-- 双击F键发动，技能进入一半的冷却时间。
+- 双击F键发动，原地跃起并斩击，技能进入一半的冷却时间。
 
-**伤害计算**：对落地半径 8 内敌人造成伤害：41 + 目标最大生命 × 0.7%
+**伤害计算**：对落地半径 8 内敌人造成伤害 = 41 + 目标最大生命 × 0.7%
+
+**技能标签**：伤害、位移、无敌帧、范围点燃
 <br>
 <br>
 
@@ -535,6 +537,80 @@ c_give("fire_machete")
 
 因此，龙刃可以通过高温环境"自我修复"。夏季、火堆旁、岩浆附近等场景都能帮助它恢复。
 <br>
+<br>
+
+<hr style="border:0; border-top:3px solid #D9D9D9; background:transparent;">
+<br>
+
+### 龙心火焰笔
+```lua
+c_give("firepen_dragoonheart")
+```
+龙心火焰笔是一支远程火焰武器，攻击时发射直线飞行的火焰团，命中会造成全额<span style="color: #C1342B;">火焰伤害</span>。
+
+装备者为薇洛时，伤害量会随薇洛体温升高而增加；笔身处于高温时还能缓慢修复耐久。
+<br>
+<br>
+
+#### 基础属性
+
+<table class="wikitable">
+  <thead>
+    <tr>
+      <th style="width: 50%;">属性</th>
+      <th style="width: 50%;">数值 / 效果</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>基础物理伤害</td><td>无</td></tr>
+    <tr><td>基础火焰伤害</td><td>34</td></tr>
+    <tr><td>薇洛体温加成的额外火焰伤害</td><td>0 ~ 34</td></tr>
+    <tr><td>耐久耗尽后火焰伤害</td><td>17</td></tr>
+    <tr><td>最大耐久</td><td>200</td></tr>
+    <tr><td>攻击距离</td><td>8 ~ 10</td></tr>
+    <tr><td>火焰团最大飞行距离</td><td>30</td></tr>
+    <tr><td>火焰团飞行速度</td><td>20</td></tr>
+    <tr><td>火焰团命中效果</td><td>造成伤害和点燃</td></tr>
+    <tr><td>物品潮湿度</td><td>火焰笔不会潮湿</td></tr>
+    <tr><td>漂浮</td><td>支持</td></tr>
+  </tbody>
+</table>
+<br>
+
+#### 温度与特效
+
+龙心火焰笔带有温度机制，最低温度为 0。
+
+装备者为薇洛时，造成的<span style="color: #C1342B;">火焰伤害</span>会读取薇洛当前体温，而不是笔自身温度：
+
+<table class="wikitable">
+  <thead>
+    <tr>
+      <th style="width: 30%;">场景</th>
+      <th style="width: 70%;">效果</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>装备者不是薇洛</td><td>火焰伤害固定为 34</td></tr>
+    <tr><td>装备者是薇洛</td><td>火焰伤害 = 34 + 当前体温 * 66.6%，在体温 51 时达到伤害上限 68</td></tr>
+    <tr><td>笔自身温度 &gt; 55</td><td>触发修复，每秒恢复 1 耐久</td></tr>
+    <tr><td>耐久耗尽且未修复</td><td>火焰伤害保持为 17</td></tr>
+  </tbody>
+</table>
+<br>
+
+#### 远程攻击与火焰团
+
+龙心火焰笔使用 火焰团 作为弹道物，命中时触发以下效果：
+
+- 解除可冰冻目标的冻结状态，降低冰冻层数。
+- 将目标点燃。
+- 唤醒正在睡眠的目标。
+- 造成<span style="color: #C1342B;">火焰伤害</span>，伤害量受薇洛体温加成。
+<br>
+<br>
+
+<hr style="border:0; border-top:3px solid #D9D9D9; background:transparent;">
 <br>
 </details>
 
